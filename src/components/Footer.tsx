@@ -157,25 +157,25 @@ const Footer = () => {
               <div className="flex items-center gap-3 text-muted-foreground">
                 <Mail className="h-5 w-5 text-primary" />
                 <a 
-                  href="mailto:contact@etudiant-ivoirien.ci" 
+                  href="mailto:arnaudkouadio2029@gmail.com" 
                   className="hover:text-primary transition-colors duration-200"
                 >
-                  contact@etudiant-ivoirien.ci
+                  arnaudkouadio2029@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-3 text-muted-foreground">
                 <Phone className="h-5 w-5 text-primary" />
                 <a 
-                  href="tel:+2250123456789" 
+                  href="tel:+2250779946362" 
                   className="hover:text-primary transition-colors duration-200"
                 >
-                  +225 01 23 45 67 89
+                  +2250779946362/0503490066
                 </a>
               </div>
               <div className="flex items-start gap-3 text-muted-foreground">
                 <MapPin className="h-5 w-5 text-primary mt-0.5" />
                 <address className="not-italic">
-                  Abidjan, Cocody<br />
+                  Yamoussoukro, Sopim<br />
                   Côte d'Ivoire
                 </address>
               </div>
