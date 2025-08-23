@@ -2,41 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Étudiant Ivoirien Design System */
 
 @layer base {
   :root {
+    /* Brand Colors - Orange, Green, White palette */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 0 0% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary: Orange principal #FF7A00 */
+    --primary: 26 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 26 100% 65%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary: Vert rassurant #28A745 */
+    --secondary: 134 61% 41%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted grays for subtle elements */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent variations */
+    --accent: 26 100% 97%;
+    --accent-foreground: 26 100% 50%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 90%;
+    --input: 0 0% 96%;
+    --ring: 26 100% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(26 100% 50% / 0.9), hsl(134 61% 41% / 0.9));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(0 0% 98%));
+    --gradient-orange: linear-gradient(135deg, hsl(26 100% 50%), hsl(26 100% 65%));
+    --gradient-green: linear-gradient(135deg, hsl(134 61% 41%), hsl(134 61% 55%));
+
+    /* Shadows with brand colors */
+    --shadow-orange: 0 4px 20px hsl(26 100% 50% / 0.2);
+    --shadow-green: 0 4px 20px hsl(134 61% 41% / 0.2);
+    --shadow-subtle: 0 2px 10px hsl(0 0% 0% / 0.1);
+    --shadow-strong: 0 8px 30px hsl(0 0% 0% / 0.15);
+
+    /* Animation timing */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +120,64 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  /* Button variants */
+  .btn-hero {
+    @apply bg-gradient-to-r from-primary to-primary-glow text-primary-foreground px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-[var(--shadow-orange)] active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply bg-gradient-to-r from-secondary to-green-500 text-secondary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-[var(--shadow-green)];
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary bg-transparent px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:scale-105;
+  }
+
+  /* Card animations */
+  .card-float {
+    @apply transition-all duration-300 hover:translate-y-[-8px] hover:shadow-[var(--shadow-strong)];
+  }
+
+  /* WhatsApp button */
+  .whatsapp-float {
+    @apply fixed bottom-6 right-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-lg hover:scale-110 transition-all duration-300 animate-pulse;
+  }
+
+  /* Chatbot styles */
+  .chatbot-widget {
+    @apply fixed bottom-6 left-6 z-50 bg-white rounded-2xl shadow-2xl border border-border;
+  }
+
+  /* Gradient texts */
+  .text-gradient-orange {
+    @apply bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent;
+  }
+
+  .text-gradient-green {
+    @apply bg-gradient-to-r from-secondary to-green-500 bg-clip-text text-transparent;
+  }
+
+  /* Animation utilities */
+  .fade-in-up {
+    @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+  }
+
+  .fade-in-up.animate {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .bounce-in {
+    @apply animate-[bounceIn_0.6s_ease-out];
+  }
+
+  /* Hero background */
+  .hero-bg {
+    background: linear-gradient(135deg, hsl(26 100% 50% / 0.1), hsl(134 61% 41% / 0.1)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23FF7A00" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
   }
 }
