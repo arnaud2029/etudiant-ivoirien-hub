@@ -4,8 +4,8 @@ import { useState } from "react";
 const WhatsAppFloat = () => {
   const [isVisible, setIsVisible] = useState(true);
   
-  const whatsappNumber = "2250123456789"; // Remplacer par le vrai numéro
-  const defaultMessage = "Bonjour, je souhaite de l'aide pour accéder aux cours sur Étudiant Ivoirien.";
+  const whatsappNumber = "2250779946362";
+  const defaultMessage = "Bonjour, je viens de votre site web. Je suis intéressé par vos services. Pouvez-vous m'en dire plus!?";
   
   const handleWhatsAppClick = () => {
     const encodedMessage = encodeURIComponent(defaultMessage);
