@@ -47,9 +47,12 @@ const Hero = () => {
                 size="lg" 
                 variant="outline" 
                 className="btn-outline text-lg px-8 py-4 h-auto group"
+                asChild
               >
-                <Play className="mr-2 h-5 w-5 group-hover:text-primary transition-colors" />
-                <span>Parcourir la bibliothèque</span>
+                <a href="/cours">
+                  <Play className="mr-2 h-5 w-5 group-hover:text-primary transition-colors" />
+                  <span>Parcourir la bibliothèque</span>
+                </a>
               </Button>
             </div>
 

@@ -102,9 +102,9 @@ const Features = () => {
               <button className="btn-hero px-8 py-4 text-lg">
                 Créer mon compte gratuit
               </button>
-              <button className="btn-outline px-8 py-4 text-lg">
+              <a href="/cours" className="btn-outline px-8 py-4 text-lg inline-block text-center">
                 Explorer les cours
-              </button>
+              </a>
             </div>
           </div>
         </div>

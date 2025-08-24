@@ -29,7 +29,7 @@ const Header = () => {
             <ul className="flex items-center space-x-8">
               <li>
                 <a 
-                  href="#accueil" 
+                  href="/" 
                   className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
                 >
                   Accueil
@@ -37,7 +37,7 @@ const Header = () => {
               </li>
               <li>
                 <a 
-                  href="#cours" 
+                  href="/cours" 
                   className="text-foreground hover:text-primary transition-colors duration-200 font-medium flex items-center gap-2"
                 >
                   <BookOpen className="h-4 w-4" />
@@ -99,14 +99,14 @@ const Header = () => {
           <div className="md:hidden py-4 border-t border-border animate-fade-in-up">
             <nav className="space-y-4">
               <a 
-                href="#accueil"
+                href="/"
                 className="block text-foreground hover:text-primary transition-colors duration-200 font-medium py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Accueil
               </a>
               <a 
-                href="#cours"
+                href="/cours"
                 className="block text-foreground hover:text-primary transition-colors duration-200 font-medium py-2 flex items-center gap-2"
                 onClick={() => setIsMenuOpen(false)}
               >
