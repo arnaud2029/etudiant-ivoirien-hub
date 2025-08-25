@@ -37,7 +37,7 @@ const Header = () => {
               </li>
               <li>
                 <a 
-                  href="/cours" 
+                  href="/signup" 
                   className="text-foreground hover:text-primary transition-colors duration-200 font-medium flex items-center gap-2"
                 >
                   <BookOpen className="h-4 w-4" />
@@ -46,7 +46,7 @@ const Header = () => {
               </li>
               <li>
                 <a 
-                  href="#exercices" 
+                  href="/signup" 
                   className="text-foreground hover:text-primary transition-colors duration-200 font-medium flex items-center gap-2"
                 >
                   <Award className="h-4 w-4" />
@@ -55,7 +55,7 @@ const Header = () => {
               </li>
               <li>
                 <a 
-                  href="#bibliotheque" 
+                  href="/signup" 
                   className="text-foreground hover:text-primary transition-colors duration-200 font-medium flex items-center gap-2"
                 >
                   <Users className="h-4 w-4" />
@@ -76,11 +76,11 @@ const Header = () => {
 
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" className="btn-outline">
-              Se connecter
+            <Button variant="outline" className="btn-outline" asChild>
+              <a href="/login">Se connecter</a>
             </Button>
-            <Button className="btn-hero">
-              Créer un compte
+            <Button className="btn-hero" asChild>
+              <a href="/signup">Créer un compte</a>
             </Button>
           </div>
 
@@ -106,7 +106,7 @@ const Header = () => {
                 Accueil
               </a>
               <a 
-                href="/cours"
+                href="/signup"
                 className="block text-foreground hover:text-primary transition-colors duration-200 font-medium py-2 flex items-center gap-2"
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -114,7 +114,7 @@ const Header = () => {
                 Cours
               </a>
               <a 
-                href="#exercices"
+                href="/signup"
                 className="block text-foreground hover:text-primary transition-colors duration-200 font-medium py-2 flex items-center gap-2"
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -122,7 +122,7 @@ const Header = () => {
                 Exercices
               </a>
               <a 
-                href="#bibliotheque"
+                href="/signup"
                 className="block text-foreground hover:text-primary transition-colors duration-200 font-medium py-2 flex items-center gap-2"
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -138,11 +138,11 @@ const Header = () => {
                 Contact
               </a>
               <div className="flex flex-col space-y-2 pt-4">
-                <Button variant="outline" className="btn-outline w-full">
-                  Se connecter
+                <Button variant="outline" className="btn-outline w-full" asChild>
+                  <a href="/login">Se connecter</a>
                 </Button>
-                <Button className="btn-hero w-full">
-                  Créer un compte
+                <Button className="btn-hero w-full" asChild>
+                  <a href="/signup">Créer un compte</a>
                 </Button>
               </div>
             </nav>
