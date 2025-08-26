@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { MessageCircle, X, Send } from "lucide-react";
+import { MessageCircle, X, Send, Loader2 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/components/ui/use-toast";
 
 interface Message {
   id: string;
@@ -15,12 +17,14 @@ const Chatbot = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "Salut 👋 ! Je suis Kora, ton assistant d'étude. Tu cherches un cours, un exercice ou de l'aide pour t'inscrire ?",
+      text: "Salut 👋 ! Je suis Kora, ton assistant d'étude IA. Tu cherches un cours, un exercice ou de l'aide pour t'inscrire ? Je peux répondre à toutes tes questions sur Étudiant Ivoirien !",
       isBot: true,
       timestamp: new Date()
     }
   ]);
   const [inputValue, setInputValue] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
 
   const quickReplies = [
     "Chercher un cours",
@@ -29,8 +33,8 @@ const Chatbot = () => {
     "Parler à un conseiller"
   ];
 
-  const handleSendMessage = (text: string) => {
-    if (!text.trim()) return;
+  const handleSendMessage = async (text: string) => {
+    if (!text.trim() || isLoading) return;
 
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -41,30 +45,58 @@ const Chatbot = () => {
 
     setMessages(prev => [...prev, userMessage]);
     setInputValue("");
+    setIsLoading(true);
 
-    // Simulate bot response
-    setTimeout(() => {
-      let botResponse = "";
-      
-      if (text.toLowerCase().includes("cours")) {
-        botResponse = "Super ! Quel niveau t'intéresse ? Primaire, Secondaire ou Université ? Tu peux aussi me dire quelle matière tu préfères 📚";
-      } else if (text.toLowerCase().includes("inscription")) {
-        botResponse = "Pour t'inscrire, c'est très simple ! Clique sur 'Créer un compte' en haut à droite, ou connecte-toi directement avec Gmail. C'est gratuit ! 🎓";
-      } else if (text.toLowerCase().includes("conseiller")) {
-        botResponse = "Je vais te connecter avec un conseiller humain. Tu peux aussi utiliser le bouton WhatsApp en bas à droite pour continuer la conversation ! 💬";
-      } else {
-        botResponse = "Je comprends ! Peux-tu me donner plus de détails ? Je suis là pour t'aider à trouver les meilleurs cours pour toi 😊";
+    try {
+      // Préparer l'historique de conversation pour le contexte
+      const conversationHistory = messages.map(msg => ({
+        role: msg.isBot ? 'assistant' : 'user',
+        content: msg.text
+      }));
+
+      const { data, error } = await supabase.functions.invoke('chatbot-ai', {
+        body: {
+          message: text,
+          conversationHistory: conversationHistory
+        }
+      });
+
+      if (error) {
+        console.error('Erreur Supabase:', error);
+        throw new Error(error.message);
       }
+
+      const aiResponse = data?.response || data?.fallback || "Désolé, je n'ai pas pu traiter ta demande. Peux-tu reformuler ta question ?";
 
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: botResponse,
+        text: aiResponse,
         isBot: true,
         timestamp: new Date()
       };
 
       setMessages(prev => [...prev, botMessage]);
-    }, 1000);
+
+    } catch (error) {
+      console.error('Erreur chatbot:', error);
+      
+      const errorMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        text: "Désolé, je rencontre un problème technique. Tu peux me reposer ta question ou contacter notre support via WhatsApp pour une aide immédiate ! 💬",
+        isBot: true,
+        timestamp: new Date()
+      };
+
+      setMessages(prev => [...prev, errorMessage]);
+      
+      toast({
+        title: "Erreur de connexion",
+        description: "Problème temporaire avec l'assistant IA",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleQuickReply = (reply: string) => {
@@ -145,8 +177,18 @@ const Chatbot = () => {
             ))}
           </div>
 
+          {/* Loading indicator */}
+          {isLoading && (
+            <div className="flex justify-start px-4">
+              <div className="bg-muted text-foreground max-w-xs px-3 py-2 rounded-lg flex items-center gap-2">
+                <Loader2 className="h-4 w-4 animate-spin" />
+                <span className="text-sm">Kora réfléchit...</span>
+              </div>
+            </div>
+          )}
+
           {/* Quick Replies */}
-          {messages.length <= 2 && (
+          {messages.length <= 2 && !isLoading && (
             <div className="px-4 pb-2">
               <div className="grid grid-cols-2 gap-2">
                 {quickReplies.map((reply) => (
@@ -179,9 +221,10 @@ const Chatbot = () => {
               <Button
                 onClick={() => handleSendMessage(inputValue)}
                 size="sm"
-                className="bg-gradient-to-r from-primary to-primary-glow hover:scale-105 transition-transform"
+                disabled={isLoading}
+                className="bg-gradient-to-r from-primary to-primary-glow hover:scale-105 transition-transform disabled:opacity-50"
               >
-                <Send className="h-4 w-4" />
+                {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
               </Button>
             </div>
           </div>
