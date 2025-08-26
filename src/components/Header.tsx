@@ -1,9 +1,15 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, BookOpen, Users, Award, MessageCircle } from "lucide-react";
+import { Menu, X, BookOpen, Users, Award, MessageCircle, LogOut } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    await signOut();
+  };
 
   return (
     <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-border shadow-sm">
@@ -37,8 +43,9 @@ const Header = () => {
               </li>
               <li>
                 <a 
-                  href="/signup" 
+                  href={user ? "/cours" : "/signup"} 
                   className="text-foreground hover:text-primary transition-colors duration-200 font-medium flex items-center gap-2"
+                  onClick={() => !user && localStorage.setItem('intendedPage', '/cours')}
                 >
                   <BookOpen className="h-4 w-4" />
                   Cours
@@ -46,8 +53,9 @@ const Header = () => {
               </li>
               <li>
                 <a 
-                  href="/signup" 
+                  href={user ? "/exercices" : "/signup"} 
                   className="text-foreground hover:text-primary transition-colors duration-200 font-medium flex items-center gap-2"
+                  onClick={() => !user && localStorage.setItem('intendedPage', '/exercices')}
                 >
                   <Award className="h-4 w-4" />
                   Exercices
@@ -55,8 +63,9 @@ const Header = () => {
               </li>
               <li>
                 <a 
-                  href="/signup" 
+                  href={user ? "/bibliotheque" : "/signup"} 
                   className="text-foreground hover:text-primary transition-colors duration-200 font-medium flex items-center gap-2"
+                  onClick={() => !user && localStorage.setItem('intendedPage', '/bibliotheque')}
                 >
                   <Users className="h-4 w-4" />
                   Bibliothèque
@@ -64,7 +73,7 @@ const Header = () => {
               </li>
               <li>
                 <a 
-                  href="#contact" 
+                  href="/contact" 
                   className="text-foreground hover:text-primary transition-colors duration-200 font-medium flex items-center gap-2"
                 >
                   <MessageCircle className="h-4 w-4" />
@@ -76,12 +85,26 @@ const Header = () => {
 
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" className="btn-outline" asChild>
-              <a href="/login">Se connecter</a>
-            </Button>
-            <Button className="btn-hero" asChild>
-              <a href="/signup">Créer un compte</a>
-            </Button>
+            {user ? (
+              <div className="flex items-center space-x-4">
+                <span className="text-sm text-muted-foreground">
+                  Bonjour, {user.email?.split('@')[0]}
+                </span>
+                <Button variant="outline" onClick={handleSignOut}>
+                  <LogOut className="h-4 w-4 mr-2" />
+                  Se déconnecter
+                </Button>
+              </div>
+            ) : (
+              <>
+                <Button variant="outline" className="btn-outline" asChild>
+                  <a href="/login">Se connecter</a>
+                </Button>
+                <Button className="btn-hero" asChild>
+                  <a href="/signup">Créer un compte</a>
+                </Button>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -106,31 +129,40 @@ const Header = () => {
                 Accueil
               </a>
               <a 
-                href="/signup"
+                href={user ? "/cours" : "/signup"}
                 className="block text-foreground hover:text-primary transition-colors duration-200 font-medium py-2 flex items-center gap-2"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  !user && localStorage.setItem('intendedPage', '/cours');
+                }}
               >
                 <BookOpen className="h-4 w-4" />
                 Cours
               </a>
               <a 
-                href="/signup"
+                href={user ? "/exercices" : "/signup"}
                 className="block text-foreground hover:text-primary transition-colors duration-200 font-medium py-2 flex items-center gap-2"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  !user && localStorage.setItem('intendedPage', '/exercices');
+                }}
               >
                 <Award className="h-4 w-4" />
                 Exercices
               </a>
               <a 
-                href="/signup"
+                href={user ? "/bibliotheque" : "/signup"}
                 className="block text-foreground hover:text-primary transition-colors duration-200 font-medium py-2 flex items-center gap-2"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  !user && localStorage.setItem('intendedPage', '/bibliotheque');
+                }}
               >
                 <Users className="h-4 w-4" />
                 Bibliothèque
               </a>
               <a 
-                href="#contact"
+                href="/contact"
                 className="block text-foreground hover:text-primary transition-colors duration-200 font-medium py-2 flex items-center gap-2"
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -138,12 +170,26 @@ const Header = () => {
                 Contact
               </a>
               <div className="flex flex-col space-y-2 pt-4">
-                <Button variant="outline" className="btn-outline w-full" asChild>
-                  <a href="/login">Se connecter</a>
-                </Button>
-                <Button className="btn-hero w-full" asChild>
-                  <a href="/signup">Créer un compte</a>
-                </Button>
+                {user ? (
+                  <>
+                    <div className="text-sm text-muted-foreground px-2 py-1">
+                      Connecté : {user.email?.split('@')[0]}
+                    </div>
+                    <Button variant="outline" onClick={handleSignOut} className="w-full">
+                      <LogOut className="h-4 w-4 mr-2" />
+                      Se déconnecter
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <Button variant="outline" className="btn-outline w-full" asChild>
+                      <a href="/login">Se connecter</a>
+                    </Button>
+                    <Button className="btn-hero w-full" asChild>
+                      <a href="/signup">Créer un compte</a>
+                    </Button>
+                  </>
+                )}
               </div>
             </nav>
           </div>
