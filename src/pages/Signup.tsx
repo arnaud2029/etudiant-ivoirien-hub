@@ -240,7 +240,13 @@ const Signup = () => {
               S'inscrire avec Google
             </Button>
 
-            <div className="text-center">
+            <div className="text-center space-y-2">
+              <Link 
+                to="/reset-password" 
+                className="text-sm text-primary hover:underline font-medium block"
+              >
+                Mot de passe oublié ?
+              </Link>
               <p className="text-sm text-muted-foreground">
                 Déjà un compte ?{' '}
                 <Link to="/login" className="text-primary hover:underline font-medium">
