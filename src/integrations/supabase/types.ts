@@ -14,7 +14,174 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      courses: {
+        Row: {
+          content: string | null
+          created_at: string
+          description: string
+          difficulty: string
+          downloads: number
+          duration_minutes: number
+          id: string
+          is_premium: boolean
+          level: string
+          pdf_url: string | null
+          subject: string
+          thumbnail_url: string | null
+          title: string
+          total_pages: number
+          updated_at: string
+          video_url: string | null
+        }
+        Insert: {
+          content?: string | null
+          created_at?: string
+          description: string
+          difficulty: string
+          downloads?: number
+          duration_minutes?: number
+          id?: string
+          is_premium?: boolean
+          level: string
+          pdf_url?: string | null
+          subject: string
+          thumbnail_url?: string | null
+          title: string
+          total_pages?: number
+          updated_at?: string
+          video_url?: string | null
+        }
+        Update: {
+          content?: string | null
+          created_at?: string
+          description?: string
+          difficulty?: string
+          downloads?: number
+          duration_minutes?: number
+          id?: string
+          is_premium?: boolean
+          level?: string
+          pdf_url?: string | null
+          subject?: string
+          thumbnail_url?: string | null
+          title?: string
+          total_pages?: number
+          updated_at?: string
+          video_url?: string | null
+        }
+        Relationships: []
+      }
+      exercises: {
+        Row: {
+          created_at: string
+          description: string
+          difficulty: string
+          duration_minutes: number
+          exercise_type: string
+          id: string
+          level: string
+          pdf_url: string | null
+          points: number
+          questions: Json | null
+          solutions: Json | null
+          subject: string
+          thumbnail_url: string | null
+          title: string
+          updated_at: string
+          video_url: string | null
+        }
+        Insert: {
+          created_at?: string
+          description: string
+          difficulty: string
+          duration_minutes?: number
+          exercise_type: string
+          id?: string
+          level: string
+          pdf_url?: string | null
+          points?: number
+          questions?: Json | null
+          solutions?: Json | null
+          subject: string
+          thumbnail_url?: string | null
+          title: string
+          updated_at?: string
+          video_url?: string | null
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          difficulty?: string
+          duration_minutes?: number
+          exercise_type?: string
+          id?: string
+          level?: string
+          pdf_url?: string | null
+          points?: number
+          questions?: Json | null
+          solutions?: Json | null
+          subject?: string
+          thumbnail_url?: string | null
+          title?: string
+          updated_at?: string
+          video_url?: string | null
+        }
+        Relationships: []
+      }
+      user_progress: {
+        Row: {
+          completed_at: string | null
+          course_id: string | null
+          created_at: string
+          exercise_id: string | null
+          id: string
+          progress_percentage: number
+          score: number | null
+          time_spent_minutes: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string | null
+          course_id?: string | null
+          created_at?: string
+          exercise_id?: string | null
+          id?: string
+          progress_percentage?: number
+          score?: number | null
+          time_spent_minutes?: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          completed_at?: string | null
+          course_id?: string | null
+          created_at?: string
+          exercise_id?: string | null
+          id?: string
+          progress_percentage?: number
+          score?: number | null
+          time_spent_minutes?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_progress_course_id_fkey"
+            columns: ["course_id"]
+            isOneToOne: false
+            referencedRelation: "courses"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "user_progress_exercise_id_fkey"
+            columns: ["exercise_id"]
+            isOneToOne: false
+            referencedRelation: "exercises"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
