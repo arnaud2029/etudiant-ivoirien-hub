@@ -1,6 +1,10 @@
 import { useState } from "react";
-import { Search, Target } from "lucide-react";
+import { Search, Target, Trophy, BookOpen, Award, CheckCircle, Users, Clock, PlayCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
@@ -25,24 +29,11 @@ const exercises = [
     thumbnail: courseMathCollege,
     hasVideo: false,
     hasPdf: false,
-    questions: [
-      {
-        id: 1,
-        question: "Combien d'angles possède un triangle ?",
-        options: ["2", "3", "4", "5"],
-        correctAnswer: 1,
-        explanation: "Un triangle possède toujours 3 angles."
-      },
-      {
-        id: 2,
-        question: "Quelle est la somme des angles d'un triangle ?",
-        options: ["90°", "180°", "270°", "360°"],
-        correctAnswer: 1,
-        explanation: "La somme des angles d'un triangle est toujours 180°."
-      }
-    ]
-  }
-];
+    questions: 20,
+    completed: 0
+  },
+  {
+    id: "2",
     title: "Quiz Mathématiques CE1 - Addition et soustraction",
     description: "Test vos connaissances sur les opérations de base",
     level: "Primaire",
@@ -55,7 +46,7 @@ const exercises = [
     points: 100
   },
   {
-    id: 2,
+    id: "3",
     title: "Exercices Français CP - Lecture",
     description: "Entraînement à la lecture de mots simples",
     level: "Primaire", 
@@ -68,7 +59,7 @@ const exercises = [
     points: 80
   },
   {
-    id: 3,
+    id: "4",
     title: "Problèmes Mathématiques 6ème - Géométrie",
     description: "Calculs d'aires et de périmètres",
     level: "Collège",
@@ -81,7 +72,7 @@ const exercises = [
     points: 150
   },
   {
-    id: 4,
+    id: "5",
     title: "QCM Histoire 4ème - Afrique précoloniale",
     description: "Questions sur les grands empires africains",
     level: "Collège",
@@ -94,7 +85,7 @@ const exercises = [
     points: 120
   },
   {
-    id: 5,
+    id: "6",
     title: "Analyse Mathématiques Terminale C",
     description: "Fonctions dérivées et primitives",
     level: "Lycée",
@@ -107,7 +98,7 @@ const exercises = [
     points: 200
   },
   {
-    id: 6,
+    id: "7",
     title: "Dissertation Philosophie Terminale",
     description: "Sujets sur la conscience et la liberté",
     level: "Lycée",
