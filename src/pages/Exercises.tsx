@@ -21,101 +21,227 @@ const exercises = [
     title: "Géométrie - Quiz sur les triangles",
     description: "Testez vos connaissances sur les propriétés des triangles et leurs classifications",
     level: "Collège",
-    subject: "Mathématiques", 
-    difficulty: "Intermédiaire",
+    subject: "Mathématiques",
+    difficulty: "Intermédiaire", 
     duration: "15 min",
-    points: 20,
+    points: 100,
     type: "QCM",
     thumbnail: courseMathCollege,
     hasVideo: false,
-    hasPdf: false,
-    questions: 20,
+    hasPdf: true,
+    questions: 5,
+    questionsList: [
+      {
+        id: 1,
+        question: "Combien d'angles possède un triangle ?",
+        options: ["2", "3", "4", "5"],
+        correctAnswer: 1,
+        explanation: "Un triangle possède toujours 3 angles intérieurs."
+      },
+      {
+        id: 2,
+        question: "Quelle est la somme des angles d'un triangle ?",
+        options: ["90°", "180°", "270°", "360°"],
+        correctAnswer: 1,
+        explanation: "La somme des angles d'un triangle est toujours 180°."
+      },
+      {
+        id: 3,
+        question: "Dans un triangle rectangle, comment s'appelle le côté opposé à l'angle droit ?",
+        options: ["Côté adjacent", "Hypoténuse", "Cathète", "Médiane"],
+        correctAnswer: 1,
+        explanation: "L'hypoténuse est le côté le plus long d'un triangle rectangle, opposé à l'angle droit."
+      },
+      {
+        id: 4,
+        question: "Un triangle équilatéral a :",
+        options: ["3 côtés égaux", "2 côtés égaux", "Aucun côté égal", "4 côtés égaux"],
+        correctAnswer: 0,
+        explanation: "Un triangle équilatéral a ses 3 côtés de même longueur et ses 3 angles de 60°."
+      },
+      {
+        id: 5,
+        question: "Selon le théorème de Pythagore, dans un triangle rectangle de côtés 3 et 4, l'hypoténuse mesure :",
+        options: ["5", "6", "7", "8"],
+        correctAnswer: 0,
+        explanation: "D'après Pythagore : h² = 3² + 4² = 9 + 16 = 25, donc h = 5."
+      }
+    ],
     completed: 0
   },
   {
     id: "2",
-    title: "Quiz Mathématiques CE1 - Addition et soustraction",
-    description: "Test vos connaissances sur les opérations de base",
+    title: "Additions et soustractions - CE1",
+    description: "Maîtriser les opérations de base avec des nombres jusqu'à 100",
     level: "Primaire",
     subject: "Mathématiques",
-    duration: "15 min",
-    questions: 20,
+    duration: "20 min",
+    questions: 10,
     difficulty: "Débutant",
     completed: 85,
-    type: "Quiz",
-    points: 100
+    type: "Calcul",
+    points: 80,
+    questionsList: [
+      {
+        id: 1,
+        question: "Combien font 15 + 8 ?",
+        options: ["21", "23", "24", "25"],
+        correctAnswer: 1,
+        explanation: "15 + 8 = 23. On peut faire 15 + 5 = 20, puis 20 + 3 = 23."
+      },
+      {
+        id: 2,
+        question: "Combien font 30 - 12 ?",
+        options: ["18", "19", "17", "22"],
+        correctAnswer: 0,
+        explanation: "30 - 12 = 18. On peut faire 30 - 10 = 20, puis 20 - 2 = 18."
+      },
+      {
+        id: 3,
+        question: "J'ai 25 billes, j'en perds 7. Combien me reste-t-il ?",
+        options: ["17", "18", "19", "32"],
+        correctAnswer: 1,
+        explanation: "25 - 7 = 18 billes restantes."
+      }
+    ]
   },
   {
     id: "3",
-    title: "Exercices Français CP - Lecture",
-    description: "Entraînement à la lecture de mots simples",
+    title: "Lecture CP - Syllabes et mots simples",
+    description: "S'entraîner à lire des syllabes et former ses premiers mots",
     level: "Primaire", 
     subject: "Français",
-    duration: "20 min",
-    questions: 15,
+    duration: "25 min",
+    questions: 12,
     difficulty: "Débutant",
     completed: 0,
     type: "Exercice",
-    points: 80
+    points: 60,
+    questionsList: [
+      {
+        id: 1,
+        question: "Comment se lit cette syllabe : MA ?",
+        options: ["mi", "ma", "mo", "mu"],
+        correctAnswer: 1,
+        explanation: "MA se lit 'ma' comme dans 'maman'."
+      },
+      {
+        id: 2,
+        question: "Quel mot peut-on former avec PA + PA ?",
+        options: ["maman", "papa", "bébé", "dodo"],
+        correctAnswer: 1,
+        explanation: "PA + PA = PAPA"
+      }
+    ]
   },
   {
     id: "4",
-    title: "Problèmes Mathématiques 6ème - Géométrie",
-    description: "Calculs d'aires et de périmètres",
+    title: "Aires et périmètres - 6ème",
+    description: "Calculs d'aires et de périmètres des figures géométriques simples",
     level: "Collège",
     subject: "Mathématiques", 
     duration: "30 min",
-    questions: 12,
+    questions: 8,
     difficulty: "Intermédiaire",
     completed: 45,
     type: "Problème",
-    points: 150
+    points: 120,
+    questionsList: [
+      {
+        id: 1,
+        question: "Quelle est l'aire d'un rectangle de 8 cm de longueur et 5 cm de largeur ?",
+        options: ["26 cm²", "40 cm²", "13 cm²", "16 cm²"],
+        correctAnswer: 1,
+        explanation: "Aire du rectangle = longueur × largeur = 8 × 5 = 40 cm²"
+      },
+      {
+        id: 2,
+        question: "Quel est le périmètre d'un carré de côté 7 cm ?",
+        options: ["14 cm", "21 cm", "28 cm", "49 cm"],
+        correctAnswer: 2,
+        explanation: "Périmètre du carré = 4 × côté = 4 × 7 = 28 cm"
+      }
+    ]
   },
   {
     id: "5",
-    title: "QCM Histoire 4ème - Afrique précoloniale",
-    description: "Questions sur les grands empires africains",
+    title: "Empires africains - Histoire 4ème",
+    description: "Découvrir les grands empires d'Afrique de l'Ouest avant la colonisation",
     level: "Collège",
     subject: "Histoire",
     duration: "25 min",
-    questions: 18,
+    questions: 15,
     difficulty: "Intermédiaire", 
     completed: 100,
     type: "QCM",
-    points: 120
+    points: 100,
+    questionsList: [
+      {
+        id: 1,
+        question: "Quel empire est considéré comme le premier grand empire d'Afrique de l'Ouest ?",
+        options: ["Empire du Mali", "Empire Songhaï", "Empire du Ghana", "Empire du Kanem"],
+        correctAnswer: 2,
+        explanation: "L'Empire du Ghana (300-1200) est le premier grand empire organisé d'Afrique de l'Ouest."
+      },
+      {
+        id: 2,
+        question: "Qui était Mansa Moussa ?",
+        options: ["Un roi du Ghana", "Un empereur du Mali", "Un chef Songhaï", "Un explorateur"],
+        correctAnswer: 1,
+        explanation: "Mansa Moussa était l'empereur du Mali (1312-1337), célèbre pour sa richesse et son pèlerinage à La Mecque."
+      }
+    ]
   },
   {
     id: "6",
-    title: "Analyse Mathématiques Terminale C",
-    description: "Fonctions dérivées et primitives",
+    title: "Fonctions et dérivées - Terminale C",
+    description: "Étude des fonctions, calcul de dérivées et applications",
     level: "Lycée",
     subject: "Mathématiques",
     duration: "45 min",
-    questions: 10,
+    questions: 6,
     difficulty: "Avancé",
     completed: 20,
     type: "Problème",
-    points: 200
+    points: 200,
+    questionsList: [
+      {
+        id: 1,
+        question: "Quelle est la dérivée de f(x) = 3x² + 5x - 2 ?",
+        options: ["f'(x) = 6x + 5", "f'(x) = 3x + 5", "f'(x) = 6x + 5x", "f'(x) = 6x² + 5"],
+        correctAnswer: 0,
+        explanation: "La dérivée de 3x² est 6x, celle de 5x est 5, et celle de -2 est 0. Donc f'(x) = 6x + 5."
+      }
+    ]
   },
   {
     id: "7",
-    title: "Dissertation Philosophie Terminale",
-    description: "Sujets sur la conscience et la liberté",
+    title: "Philosophie - La conscience et l'inconscient",
+    description: "Réflexion sur les concepts de conscience et d'inconscient",
     level: "Lycée",
     subject: "Philosophie",
     duration: "60 min",
-    questions: 3,
+    questions: 4,
     difficulty: "Avancé",
     completed: 0,
     type: "Dissertation",
-    points: 250
-  }
+    points: 250,
+    questionsList: [
+      {
+        id: 1,
+        question: "Selon Descartes, qu'est-ce qui caractérise la conscience ?",
+        options: ["L'intuition", "La pensée", "La sensation", "L'émotion"],
+        correctAnswer: 1,
+        explanation: "Pour Descartes, 'Je pense donc je suis'. La pensée est l'attribut essentiel de la conscience."
+      }
+    ]
+  },
 ];
 
 const levels = ["Tous", "Primaire", "Collège", "Lycée", "Université"];
-const subjects = ["Toutes", "Mathématiques", "Français", "Sciences", "Histoire", "Physique-Chimie", "SVT", "Philosophie"];
+const subjects = ["Toutes", "Mathématiques", "Français", "Sciences", "Histoire", "Physique-Chimie", "SVT", "Philosophie", "Géographie", "Anglais", "Allemand", "Espagnol", "Éducation civique", "Arts plastiques", "Musique", "EPS", "Informatique"];
 const difficulties = ["Tous", "Débutant", "Intermédiaire", "Avancé", "Expert"];
-const types = ["Tous", "Quiz", "Exercice", "Problème", "QCM", "Dissertation"];
+const types = ["Tous", "Quiz", "Exercice", "Problème", "QCM", "Dissertation", "Analyse de texte", "Calcul", "Rédaction"];
 
 const Exercises = () => {
   const [selectedLevel, setSelectedLevel] = useState("Tous");

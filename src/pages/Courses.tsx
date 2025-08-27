@@ -29,57 +29,134 @@ const courses = [
     isPremium: false,
     content: `# Géométrie plane : Les figures de base
 
-## Introduction
-La géométrie plane étudie les figures à deux dimensions. Dans ce cours, nous explorerons les propriétés fondamentales des figures géométriques.
+## Chapitre 1 : Introduction à la géométrie
+### 1.1 Qu'est-ce que la géométrie ?
+La géométrie est une branche des mathématiques qui étudie les formes, les tailles, les positions relatives des figures et les propriétés de l'espace.
 
-## 1. Les triangles
-### Définition
-Un triangle est un polygone à trois côtés et trois angles.
+### 1.2 Vocabulaire de base
+- **Point** : Position précise dans l'espace (noté A, B, C...)
+- **Droite** : Ligne infinie dans les deux sens
+- **Segment** : Portion de droite limitée par deux points
+- **Demi-droite** : Portion de droite limitée d'un seul côté
 
-### Types de triangles
-- **Triangle équilatéral** : tous les côtés sont égaux
-- **Triangle isocèle** : deux côtés égaux  
-- **Triangle rectangle** : un angle droit (90°)
+## Chapitre 2 : Les triangles
+### 2.1 Définition et propriétés
+Un triangle est un polygone à trois côtés et trois angles. La somme de ses angles intérieurs est toujours égale à 180°.
 
-### Propriétés importantes
-- La somme des angles = 180°
-- Théorème de Pythagore pour les triangles rectangles
+### 2.2 Classification par les côtés
+- **Triangle équilatéral** : 3 côtés égaux, 3 angles de 60°
+- **Triangle isocèle** : 2 côtés égaux, 2 angles égaux
+- **Triangle scalène** : 3 côtés inégaux, 3 angles inégaux
 
-## 2. Les quadrilatères
-### Le carré
+### 2.3 Classification par les angles
+- **Triangle rectangle** : un angle de 90°
+- **Triangle obtus** : un angle > 90°
+- **Triangle aigu** : tous les angles < 90°
+
+### 2.4 Théorème de Pythagore
+Dans un triangle rectangle ABC rectangle en C :
+**AB² = AC² + BC²**
+
+**Exercice d'application :**
+Triangle rectangle avec AC = 3 cm et BC = 4 cm
+AB² = 3² + 4² = 9 + 16 = 25
+Donc AB = 5 cm
+
+## Chapitre 3 : Les quadrilatères
+### 3.1 Le carré
+**Propriétés :**
 - 4 côtés égaux
-- 4 angles droits
+- 4 angles droits (90°)
 - Diagonales égales et perpendiculaires
+- Aire = côté²
+- Périmètre = 4 × côté
 
-### Le rectangle  
-- Côtés opposés égaux
+### 3.2 Le rectangle
+**Propriétés :**
+- Côtés opposés égaux et parallèles
 - 4 angles droits
 - Diagonales égales
+- Aire = longueur × largeur
+- Périmètre = 2(longueur + largeur)
 
-## 3. Le cercle
-### Définition
-Ensemble des points situés à égale distance (rayon) d'un point fixe (centre).
+### 3.3 Le losange
+**Propriétés :**
+- 4 côtés égaux
+- Côtés opposés parallèles
+- Diagonales perpendiculaires
+- Aire = (d₁ × d₂) / 2
 
-### Éléments du cercle
-- **Rayon** : distance du centre à un point du cercle
-- **Diamètre** : 2 × rayon
-- **Circonférence** : 2π × rayon
-- **Aire** : π × rayon²
+### 3.4 Le parallélogramme
+**Propriétés :**
+- Côtés opposés égaux et parallèles
+- Angles opposés égaux
+- Aire = base × hauteur
 
-## Exercices pratiques
-1. Calculer l'aire d'un rectangle de 5m × 3m
-2. Trouver la circonférence d'un cercle de rayon 4cm
-3. Identifier les propriétés d'un triangle avec les côtés 3, 4, 5
+## Chapitre 4 : Le cercle
+### 4.1 Définitions
+- **Centre** : Point équidistant de tous les points du cercle
+- **Rayon** : Distance du centre à un point du cercle
+- **Diamètre** : Segment passant par le centre (= 2 × rayon)
+- **Corde** : Segment joignant deux points du cercle
+- **Arc** : Portion du cercle
+
+### 4.2 Formules importantes
+- **Circonférence** : C = 2πr = πd
+- **Aire** : A = πr²
+
+**Exemple :**
+Cercle de rayon 5 cm :
+- Circonférence = 2π × 5 = 10π ≈ 31,4 cm
+- Aire = π × 5² = 25π ≈ 78,5 cm²
+
+## Chapitre 5 : Constructions géométriques
+### 5.1 Outils nécessaires
+- Règle graduée
+- Compas
+- Équerre
+- Rapporteur
+
+### 5.2 Constructions de base
+1. **Perpendiculaire à une droite**
+2. **Bissectrice d'un angle**
+3. **Médiatrice d'un segment**
+4. **Triangle connaissant ses trois côtés**
+
+## Exercices d'application
+### Exercice 1 : Aires et périmètres
+Calculer l'aire et le périmètre d'un rectangle de 8 cm × 5 cm.
+**Solution :**
+- Aire = 8 × 5 = 40 cm²
+- Périmètre = 2(8 + 5) = 26 cm
+
+### Exercice 2 : Théorème de Pythagore
+Dans un triangle rectangle, les côtés de l'angle droit mesurent 6 cm et 8 cm. Calculer l'hypoténuse.
+**Solution :**
+h² = 6² + 8² = 36 + 64 = 100
+h = 10 cm
+
+### Exercice 3 : Cercle
+Un cercle a une circonférence de 31,4 cm. Calculer son rayon et son aire.
+**Solution :**
+C = 2πr → 31,4 = 2πr → r ≈ 5 cm
+A = πr² = π × 5² ≈ 78,5 cm²
+
+## Applications pratiques
+- **Architecture** : Conception de bâtiments, calcul de surfaces
+- **Ingénierie** : Calcul de structures, résistance des matériaux  
+- **Art** : Proportions, perspectives, motifs géométriques
+- **Navigation** : Triangulation, calcul de distances
+- **Informatique** : Graphisme, modélisation 3D
 
 ## Conclusion
-La géométrie plane est la base de nombreuses applications pratiques en architecture, ingénierie et art.`
+La géométrie plane constitue les fondations de la géométrie. Maîtriser ces concepts est essentiel pour aborder la géométrie dans l'espace et de nombreuses applications pratiques.`
   },
   {
-    id: "2",
+    id: "2", 
     title: "Lecture et écriture CP - Les premiers mots",
     description: "Apprentissage progressif de la lecture et de l'écriture. Méthode syllabique avec exercices ludiques et interactifs.",
     level: "Primaire",
-    subject: "Français",
+    subject: "Français", 
     difficulty: "Débutant",
     duration: "45 min",
     pages: 32,
@@ -90,65 +167,184 @@ La géométrie plane est la base de nombreuses applications pratiques en archite
     isPremium: false,
     content: `# Lecture et écriture CP : Les premiers mots
 
-## Objectifs du cours
-- Reconnaître les lettres de l'alphabet
-- Former des syllabes simples
-- Lire ses premiers mots
-- Écrire en lettres cursives
-
-## 1. L'alphabet
-### Les voyelles
+## Chapitre 1 : L'alphabet et les sons
+### 1.1 Les voyelles
 **A - E - I - O - U - Y**
 
-Exercice : Répète chaque voyelle à voix haute.
+Les voyelles sont des sons qu'on peut prononcer seuls, la bouche ouverte.
+- **A** : comme dans "PAPA"
+- **E** : comme dans "BÉBÉ"  
+- **I** : comme dans "MIDI"
+- **O** : comme dans "MOTO"
+- **U** : comme dans "LUNE"
 
-### Les consonnes
+**Activité 1 :** Entoure les voyelles dans ces mots : MAISON, ÉCOLE, JARDIN
+
+### 1.2 Les consonnes
 **B - C - D - F - G - H - J - K - L - M - N - P - Q - R - S - T - V - W - X - Z**
 
-## 2. Formation des syllabes
-### Syllabes simples (Consonne + Voyelle)
-- BA - BE - BI - BO - BU
-- CA - CE - CI - CO - CU  
-- DA - DE - DI - DO - DU
+Les consonnes ont besoin des voyelles pour former des sons.
 
-### Premiers mots
-- **PAPA** = PA + PA
-- **MAMA** = MA + MA
-- **BEBE** = BE + BÉ
+**Méthode d'apprentissage :**
+1. Prononcer le son de la lettre
+2. L'associer à un mot-référence
+3. S'entraîner à la tracer
 
-## 3. Lecture progressive
-### Étape 1 : Mots de 2 syllabes
-- MOTO
-- CAFÉ  
-- BÉBÉ
-- PHOTO
+## Chapitre 2 : Formation des syllabes
+### 2.1 Principe syllabique
+**Consonne + Voyelle = Syllabe**
 
-### Étape 2 : Mots de 3 syllabes
-- BANANE
-- TOMATE
-- CAMÉRA
+Exemples :
+- B + A = BA
+- M + I = MI
+- R + O = RO
 
-## 4. Écriture cursive
-### Formation des lettres
-1. Tenir correctement son crayon
-2. Respecter le sens d'écriture
-3. Relier les lettres entre elles
+### 2.2 Familles de syllabes
+**Famille du B :**
+BA - BE - BI - BO - BU
 
-### Exercices d'écriture
-- Tracer des boucles
-- Écrire son prénom
-- Copier des mots simples
+**Famille du M :**
+MA - ME - MI - MO - MU
 
-## Jeux et activités
-- Loto des lettres
-- Memory des syllabes  
-- Dictée de mots simples
+**Famille du L :**
+LA - LE - LI - LO - LU
 
-## Évaluation
-À la fin de ce cours, l'enfant sait :
-✓ Reconnaître toutes les lettres
-✓ Lire des mots simples
-✓ Écrire en cursive`
+**Exercice :** Lis ces syllabes à voix haute :
+PA - PE - PI - PO - PU
+DA - DE - DI - DO - DU
+
+## Chapitre 3 : Les premiers mots
+### 3.1 Mots de 2 syllabes
+Une fois les syllabes maîtrisées, on peut former des mots :
+
+**Mots simples :**
+- PAPA = PA + PA
+- MAMA = MA + MA  
+- PIPI = PI + PI
+- BOBO = BO + BO
+
+**Autres mots courants :**
+- BÉBÉ = BÉ + BÉ
+- DODO = DO + DO
+- LULU = LU + LU
+
+### 3.2 Mots du quotidien
+**À la maison :**
+- CANAPÉ (CA-NA-PÉ)
+- LAVABO (LA-VA-BO) 
+- RADIO (RA-DI-O)
+
+**À l'école :**
+- BUREAU (BU-REAU)
+- CAHIER (CA-HIER)
+- CRAYON (CRAY-ON)
+
+**Les animaux :**
+- LAPIN (LA-PIN)
+- CHEVAL (CHE-VAL)
+- CANARD (CA-NARD)
+
+## Chapitre 4 : Écriture cursive
+### 4.1 Préparation à l'écriture
+**Position du corps :**
+- Dos droit
+- Pieds au sol
+- Cahier incliné
+
+**Tenue du crayon :**
+- Pince avec pouce et index
+- Majeur pour soutenir
+- Autres doigts repliés
+
+### 4.2 Tracé des lettres
+**Lettres rondes :** a, o, d, g, q
+**Lettres à boucles :** b, f, h, k, l
+**Lettres à ponts :** m, n, p, r
+
+**Sens d'écriture :**
+Toujours de gauche à droite, du haut vers le bas.
+
+### 4.3 Liaisons entre lettres
+En cursive, les lettres se lient entre elles :
+- ma → m reliée à a
+- to → t reliée à o  
+- li → l reliée à i
+
+## Chapitre 5 : Exercices progressifs
+### 5.1 Niveau débutant
+1. **Reconnaissance de lettres**
+   Retrouve la lettre M dans : MAISON, AMOUR, PLUME
+
+2. **Formation de syllabes**
+   Relie les consonnes aux voyelles :
+   M + A = ?
+   L + I = ?
+   R + O = ?
+
+### 5.2 Niveau intermédiaire  
+3. **Lecture de mots simples**
+   Lis ces mots : MOTO, CAFÉ, RADIS, SALADE
+
+4. **Dictée de syllabes**
+   Écris sous la dictée : MA, LI, BO, PU, DA
+
+### 5.3 Niveau avancé
+5. **Lecture de phrases**
+   "Maman lit une histoire à Léa."
+   "Papa répare la moto rouge."
+
+6. **Production d'écrits**
+   Écris ton prénom en cursive.
+   Écris le nom de ton animal préféré.
+
+## Chapitre 6 : Jeux éducatifs
+### 6.1 Le loto des lettres
+Matériel : Cartes avec lettres et images
+Règle : Associer chaque lettre à un mot qui commence par cette lettre.
+
+### 6.2 Memory des syllabes
+Matériel : Cartes avec syllabes identiques
+Règle : Retrouver les paires de syllabes identiques.
+
+### 6.3 La chasse aux mots
+Dans la classe, trouve 5 objets dont le nom commence par la lettre B.
+
+## Évaluation progressive
+### Semaine 1-2 : Voyelles
+✓ Je reconnais toutes les voyelles
+✓ Je sais les prononcer
+✓ Je peux les écrire
+
+### Semaine 3-4 : Consonnes simples
+✓ Je reconnais B, M, L, R, P, D
+✓ Je forme des syllabes simples
+✓ Je lis mes premières syllabes
+
+### Semaine 5-6 : Premiers mots
+✓ Je lis des mots de 2 syllabes  
+✓ Je commence à écrire des mots simples
+✓ Je reconnais des mots courants
+
+### Semaine 7-8 : Phrases simples
+✓ Je lis des phrases courtes
+✓ Je comprends ce que je lis
+✓ J'écris mon prénom et des mots familiers
+
+## Ressources pour approfondir
+- **Livres de première lecture** : Collection "J'apprends à lire"
+- **Applications éducatives** : Jeux de syllabe sur tablette  
+- **Activités manuelles** : Lettres rugueuses, alphabet mobile
+- **Comptines** : Chansons pour mémoriser l'alphabet
+
+## Conseils aux parents
+1. **Lire ensemble** tous les jours (15 minutes minimum)
+2. **Encourager** sans corriger constamment
+3. **Jouer** avec les mots et les sons
+4. **Être patient**, chaque enfant a son rythme
+5. **Valoriser** les progrès même petits
+
+## Conclusion
+L'apprentissage de la lecture et de l'écriture est un processus progressif qui demande du temps et de la patience. Avec de la pratique quotidienne et des encouragements, chaque enfant peut réussir à maîtriser ces compétences fondamentales.`
   },
   {
     id: "3",

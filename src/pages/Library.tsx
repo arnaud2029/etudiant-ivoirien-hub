@@ -11,11 +11,11 @@ import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Chatbot from "@/components/Chatbot";
 
 const documents = [
-  // Livres
+  // Livres éducatifs
   {
     id: 1,
-    title: "Manuel de Mathématiques CM2",
-    description: "Guide complet pour la classe de CM2 avec exercices corrigés",
+    title: "Manuel de Mathématiques CM2 - Programme officiel",
+    description: "Guide complet pour la classe de CM2 avec exercices corrigés, conforme au programme ivoirien",
     type: "Livre",
     level: "Primaire",
     subject: "Mathématiques",
@@ -24,7 +24,67 @@ const documents = [
     rating: 4.8,
     size: "15.2 MB",
     format: "PDF",
-    author: "Ministère de l'Éducation",
+    author: "Ministère de l'Éducation Nationale",
+    published: "2024"
+  },
+  {
+    id: 2,
+    title: "Atlas Géographique de la Côte d'Ivoire",
+    description: "Cartes détaillées, données démographiques et économiques actualisées",
+    type: "Livre",
+    level: "Collège",
+    subject: "Géographie",
+    pages: 156,
+    downloads: 2890,
+    rating: 4.9,
+    size: "45.8 MB",
+    format: "PDF",
+    author: "Institut National de la Statistique",
+    published: "2024"
+  },
+  {
+    id: 3,
+    title: "Chimie Organique - Terminale C et D",
+    description: "Cours complet avec expériences et exercices d'application",
+    type: "Livre",
+    level: "Lycée",
+    subject: "Chimie",
+    pages: 324,
+    downloads: 1856,
+    rating: 4.7,
+    size: "28.5 MB",
+    format: "PDF",
+    author: "Prof. Dr. Kouame N'Guessan",
+    published: "2024"
+  },
+  {
+    id: 4,
+    title: "Littérature Africaine - Anthologie",
+    description: "Sélection d'œuvres d'auteurs africains francophones du XXe siècle",
+    type: "Livre", 
+    level: "Lycée",
+    subject: "Français",
+    pages: 198,
+    downloads: 2145,
+    rating: 4.6,
+    size: "12.3 MB",
+    format: "PDF",
+    author: "Prof. Aminata Traoré",
+    published: "2023"
+  },
+  {
+    id: 5,
+    title: "Introduction à l'Informatique - Algorithmes",
+    description: "Bases de la programmation et de l'algorithmique pour débutants",
+    type: "Livre",
+    level: "Université",
+    subject: "Informatique", 
+    pages: 287,
+    downloads: 4156,
+    rating: 4.8,
+    size: "18.9 MB",
+    format: "PDF",
+    author: "Dr. Jean-Baptiste Yao",
     published: "2024"
   },
   {
@@ -57,12 +117,11 @@ const documents = [
     author: "Dr. Kouassi N'Guessan",
     published: "2024"
   },
-  
-  // Articles
+  // Articles de recherche
   {
-    id: 4,
-    title: "L'économie ivoirienne post-indépendance",
-    description: "Analyse économique des 60 dernières années",
+    id: 6,
+    title: "L'économie numérique en Afrique de l'Ouest",
+    description: "Analyse des opportunités et défis de la transformation digitale",
     type: "Article",
     level: "Université",
     subject: "Économie",
@@ -71,30 +130,92 @@ const documents = [
     rating: 4.5,
     size: "3.2 MB",
     format: "PDF",
-    author: "Prof. Adama Diallo",
+    author: "Prof. Adama Diallo - ENSEA",
     published: "2024"
   },
   {
-    id: 5,
-    title: "Les changements climatiques en Afrique",
-    description: "Impact sur l'agriculture et solutions durables",
-    type: "Article",
-    level: "Lycée",
+    id: 7,
+    title: "Changements climatiques et agriculture en Côte d'Ivoire", 
+    description: "Impact du réchauffement sur les cultures tropicales et stratégies d'adaptation",
+    type: "Recherche",
+    level: "Université",
     subject: "Sciences",
-    pages: 28,
+    pages: 67,
     downloads: 876,
-    rating: 4.4,
-    size: "2.1 MB",
+    rating: 4.7,
+    size: "8.1 MB",
     format: "PDF",
-    author: "Dr. Fatima Traoré",
+    author: "Dr. Fatima Traoré - CNRA",
     published: "2024"
   },
-  
-  // Mémoires
   {
-    id: 6,
-    title: "Digitalisation de l'éducation en CI",
-    description: "Mémoire de Master sur les nouvelles technologies éducatives",
+    id: 8,
+    title: "Patrimoine culturel ivoirien - Inventaire national",
+    description: "Répertoire complet des sites, monuments et traditions culturels",
+    type: "Guide",
+    level: "Tous",
+    subject: "Arts",
+    pages: 234,
+    downloads: 1987,
+    rating: 4.8,
+    size: "25.6 MB", 
+    format: "PDF",
+    author: "Ministère de la Culture",
+    published: "2023"
+  },
+
+  // Manuels et cours 
+  {
+    id: 9,
+    title: "Cours d'Algorithmique et Structures de Données",
+    description: "Manuel complet pour les étudiants en informatique - Niveau L2/L3",
+    type: "Cours",
+    level: "Université",
+    subject: "Informatique", 
+    pages: 189,
+    downloads: 3456,
+    rating: 4.9,
+    size: "12.4 MB",
+    format: "PDF",
+    author: "Dr. Kouassi Yao - INPHB",
+    published: "2024"
+  },
+  {
+    id: 10,
+    title: "Grammaire Française Avancée - Lycée",
+    description: "Maîtrise complète de la langue française : syntaxe, orthographe, style",
+    type: "Manuel",
+    level: "Lycée",
+    subject: "Français",
+    pages: 298,
+    downloads: 2167,
+    rating: 4.6,
+    size: "18.7 MB",
+    format: "PDF", 
+    author: "Prof. Marie Kouadio",
+    published: "2024"
+  },
+  {
+    id: 11,
+    title: "Physique Quantique - Introduction",
+    description: "Bases de la mécanique quantique pour étudiants en physique",
+    type: "Cours",
+    level: "Université", 
+    subject: "Sciences",
+    pages: 156,
+    downloads: 892,
+    rating: 4.4,
+    size: "11.2 MB",
+    format: "PDF",
+    author: "Prof. Diabaté Seydou - Université Cocody",
+    published: "2023"
+  },
+
+  // Mémoires et thèses
+  {
+    id: 12,
+    title: "Digitalisation du système éducatif ivoirien",
+    description: "Mémoire de Master : Enjeux et perspectives des TIC dans l'éducation",
     type: "Mémoire",
     level: "Université",
     subject: "Éducation",
@@ -103,32 +224,45 @@ const documents = [
     rating: 4.3,
     size: "8.7 MB",
     format: "PDF",
-    author: "Aminata Sanogo",
+    author: "Aminata Sanogo - ENS Abidjan",
     published: "2023"
   },
-  
-  // Thèses
   {
-    id: 7,
-    title: "Intelligence Artificielle et Médecine",
-    description: "Applications de l'IA dans le diagnostic médical",
+    id: 13,
+    title: "Intelligence Artificielle appliquée à la médecine",
+    description: "Thèse de doctorat : Applications de l'IA dans le diagnostic médical",
     type: "Thèse",
     level: "Université",
-    subject: "Informatique",
+    subject: "Médecine",
     pages: 245,
     downloads: 432,
     rating: 4.7,
     size: "18.9 MB",
     format: "PDF",
-    author: "Dr. Jean-Baptiste Yao",
+    author: "Dr. Jean-Baptiste Yao - UFR Sciences Médicales",
     published: "2023"
   },
-  
-  // Rapports
   {
-    id: 8,
+    id: 14,
+    title: "Développement durable en milieu urbain africain",
+    description: "Thèse sur les stratégies d'urbanisation durable à Abidjan",
+    type: "Thèse",
+    level: "Université",
+    subject: "Géographie",
+    pages: 187,
+    downloads: 567,
+    rating: 4.5,
+    size: "15.3 MB",
+    format: "PDF",
+    author: "Dr. Kone Mariam - IGT",
+    published: "2024"
+  },
+
+  // Rapports officiels
+  {
+    id: 15,
     title: "État de l'éducation en Côte d'Ivoire 2024",
-    description: "Rapport annuel du Ministère de l'Éducation Nationale",
+    description: "Rapport annuel complet : statistiques, défis et perspectives",
     type: "Rapport",
     level: "Tous",
     subject: "Éducation",
@@ -139,13 +273,92 @@ const documents = [
     format: "PDF",
     author: "MENA-CI",
     published: "2024"
+  },
+  {
+    id: 16,
+    title: "Rapport sur la biodiversité ivoirienne",
+    description: "Inventaire de la faune et flore, état de conservation",
+    type: "Rapport",
+    level: "Lycée",
+    subject: "Sciences",
+    pages: 78,
+    downloads: 1123,
+    rating: 4.6,
+    size: "20.8 MB",
+    format: "PDF",
+    author: "OIPR - Office Ivoirien des Parcs",
+    published: "2024"
+  },
+
+  // Guides pratiques
+  {
+    id: 17,
+    title: "Guide du jeune entrepreneur ivoirien",
+    description: "Étapes pour créer et développer son entreprise en Côte d'Ivoire",
+    type: "Guide",
+    level: "Professionnel",
+    subject: "Économie",
+    pages: 89,
+    downloads: 3214,
+    rating: 4.8,
+    size: "6.4 MB",
+    format: "PDF",
+    author: "CEPICI - Centre de Promotion des Investissements",
+    published: "2024"
+  },
+  {
+    id: 18,
+    title: "Méthodologie de la recherche scientifique",
+    description: "Guide pratique pour étudiants et chercheurs débutants",
+    type: "Guide",
+    level: "Université",
+    subject: "Sociologie",
+    pages: 134,
+    downloads: 1876,
+    rating: 4.7,
+    size: "9.1 MB",
+    format: "PDF",
+    author: "Prof. Gnabeli Yao - Université Alassane Ouattara",
+    published: "2023"
+  },
+
+  // Ressources spécialisées
+  {
+    id: 19,
+    title: "Dictionnaire des langues nationales ivoiriennes",
+    description: "Lexique multilingue : Baoulé, Dioula, Bété, Agni, Français",
+    type: "Manuel",
+    level: "Tous",
+    subject: "Langues",
+    pages: 456,
+    downloads: 2987,
+    rating: 4.9,
+    size: "32.5 MB",
+    format: "PDF",
+    author: "Institut de Linguistique Appliquée",
+    published: "2024"
+  },
+  {
+    id: 20,
+    title: "Architecture traditionnelle ivoirienne",
+    description: "Étude des techniques constructives ancestrales et leur modernisation",
+    type: "Livre",
+    level: "Université",
+    subject: "Arts",
+    pages: 167,
+    downloads: 743,
+    rating: 4.4,
+    size: "28.9 MB",
+    format: "PDF",
+    author: "Prof. Koné Brahima - EAA",
+    published: "2023"
   }
 ];
 
-const types = ["Tous", "Livre", "Article", "Mémoire", "Thèse", "Rapport"];
-const levels = ["Tous", "Primaire", "Collège", "Lycée", "Université"];
-const subjects = ["Toutes", "Mathématiques", "Français", "Sciences", "Histoire", "Économie", "Éducation", "Informatique"];
-const formats = ["Tous", "PDF", "EPUB", "DOCX"];
+const types = ["Tous", "Livre", "Article", "Mémoire", "Thèse", "Rapport", "Manuel", "Guide", "Cours", "Recherche"];
+const levels = ["Tous", "Primaire", "Collège", "Lycée", "Université", "Professionnel"];
+const subjects = ["Toutes", "Mathématiques", "Français", "Sciences", "Histoire", "Économie", "Éducation", "Informatique", "Géographie", "Droit", "Médecine", "Ingénierie", "Arts", "Langues", "Philosophie", "Sociologie"];
+const formats = ["Tous", "PDF", "EPUB", "DOCX", "Video", "Audio"];
 
 const Library = () => {
   const [selectedType, setSelectedType] = useState("Tous");
