@@ -1,18 +1,48 @@
 import { useState } from "react";
-import { Search, Trophy, CheckCircle, Clock, Award, Users, BookOpen, PlayCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Search, Target } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Chatbot from "@/components/Chatbot";
+import ExerciseCard from "@/components/ExerciseCard";
+import exerciseGeneral from "@/assets/exercise-general.jpg";
+import courseMathCollege from "@/assets/course-math-college.jpg";
+import courseFrenchPrimary from "@/assets/course-french-primary.jpg";
+import coursePhysicsLycee from "@/assets/course-physics-lycee.jpg";
 
 const exercises = [
   {
-    id: 1,
+    id: "1",
+    title: "Géométrie - Quiz sur les triangles",
+    description: "Testez vos connaissances sur les propriétés des triangles et leurs classifications",
+    level: "Collège",
+    subject: "Mathématiques", 
+    difficulty: "Intermédiaire",
+    duration: "15 min",
+    points: 20,
+    type: "QCM",
+    thumbnail: courseMathCollege,
+    hasVideo: false,
+    hasPdf: false,
+    questions: [
+      {
+        id: 1,
+        question: "Combien d'angles possède un triangle ?",
+        options: ["2", "3", "4", "5"],
+        correctAnswer: 1,
+        explanation: "Un triangle possède toujours 3 angles."
+      },
+      {
+        id: 2,
+        question: "Quelle est la somme des angles d'un triangle ?",
+        options: ["90°", "180°", "270°", "360°"],
+        correctAnswer: 1,
+        explanation: "La somme des angles d'un triangle est toujours 180°."
+      }
+    ]
+  }
+];
     title: "Quiz Mathématiques CE1 - Addition et soustraction",
     description: "Test vos connaissances sur les opérations de base",
     level: "Primaire",

@@ -1,177 +1,396 @@
 import { useState } from "react";
-import { Search, Download, Eye, BookOpen, GraduationCap, Users, Clock } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Search, BookOpen, Users, GraduationCap } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Chatbot from "@/components/Chatbot";
+import CourseCard from "@/components/CourseCard";
+import courseMathCollege from "@/assets/course-math-college.jpg";
+import courseFrenchPrimary from "@/assets/course-french-primary.jpg";
+import coursePhysicsLycee from "@/assets/course-physics-lycee.jpg";
+import courseHistoryAfrica from "@/assets/course-history-africa.jpg";
+import courseComputerScience from "@/assets/course-computer-science.jpg";
 
 const courses = [
-  // Primaire
   {
-    id: 1,
-    title: "Mathématiques CE1 - Les opérations de base",
-    description: "Addition, soustraction et initiation à la multiplication",
-    level: "Primaire",
-    subject: "Mathématiques",
-    duration: "45 min",
-    pages: 24,
-    downloads: 1240,
-    difficulty: "Débutant",
-    pdfUrl: "#",
-    viewUrl: "#"
-  },
-  {
-    id: 2,
-    title: "Français CP - Lecture et écriture",
-    description: "Apprentissage des lettres et premiers mots",
-    level: "Primaire",
-    subject: "Français",
-    duration: "30 min",
-    pages: 18,
-    downloads: 890,
-    difficulty: "Débutant",
-    pdfUrl: "#",
-    viewUrl: "#"
-  },
-  {
-    id: 3,
-    title: "Sciences CM2 - Le corps humain",
-    description: "Découverte de l'anatomie et du fonctionnement du corps",
-    level: "Primaire",
-    subject: "Sciences",
-    duration: "60 min",
-    pages: 32,
-    downloads: 567,
-    difficulty: "Intermédiaire",
-    pdfUrl: "#",
-    viewUrl: "#"
-  },
-  
-  // Collège
-  {
-    id: 4,
-    title: "Mathématiques 6ème - Géométrie plane",
-    description: "Les figures géométriques et leurs propriétés",
+    id: "1",
+    title: "Géométrie plane - Les figures de base",
+    description: "Découvrez les propriétés des triangles, carrés, rectangles et cercles. Cours complet avec exercices pratiques et applications concrètes.",
     level: "Collège",
     subject: "Mathématiques",
+    difficulty: "Intermédiaire",
     duration: "90 min",
     pages: 45,
     downloads: 2134,
-    difficulty: "Intermédiaire",
-    pdfUrl: "#",
-    viewUrl: "#"
+    thumbnail: courseMathCollege,
+    hasVideo: true,
+    hasPdf: true,
+    isPremium: false,
+    content: `# Géométrie plane : Les figures de base
+
+## Introduction
+La géométrie plane étudie les figures à deux dimensions. Dans ce cours, nous explorerons les propriétés fondamentales des figures géométriques.
+
+## 1. Les triangles
+### Définition
+Un triangle est un polygone à trois côtés et trois angles.
+
+### Types de triangles
+- **Triangle équilatéral** : tous les côtés sont égaux
+- **Triangle isocèle** : deux côtés égaux  
+- **Triangle rectangle** : un angle droit (90°)
+
+### Propriétés importantes
+- La somme des angles = 180°
+- Théorème de Pythagore pour les triangles rectangles
+
+## 2. Les quadrilatères
+### Le carré
+- 4 côtés égaux
+- 4 angles droits
+- Diagonales égales et perpendiculaires
+
+### Le rectangle  
+- Côtés opposés égaux
+- 4 angles droits
+- Diagonales égales
+
+## 3. Le cercle
+### Définition
+Ensemble des points situés à égale distance (rayon) d'un point fixe (centre).
+
+### Éléments du cercle
+- **Rayon** : distance du centre à un point du cercle
+- **Diamètre** : 2 × rayon
+- **Circonférence** : 2π × rayon
+- **Aire** : π × rayon²
+
+## Exercices pratiques
+1. Calculer l'aire d'un rectangle de 5m × 3m
+2. Trouver la circonférence d'un cercle de rayon 4cm
+3. Identifier les propriétés d'un triangle avec les côtés 3, 4, 5
+
+## Conclusion
+La géométrie plane est la base de nombreuses applications pratiques en architecture, ingénierie et art.`
   },
   {
-    id: 5,
-    title: "Histoire 4ème - L'Afrique précoloniale",
-    description: "Les grands empires africains avant la colonisation",
+    id: "2",
+    title: "Lecture et écriture CP - Les premiers mots",
+    description: "Apprentissage progressif de la lecture et de l'écriture. Méthode syllabique avec exercices ludiques et interactifs.",
+    level: "Primaire",
+    subject: "Français",
+    difficulty: "Débutant",
+    duration: "45 min",
+    pages: 32,
+    downloads: 890,
+    thumbnail: courseFrenchPrimary,
+    hasVideo: true,
+    hasPdf: true,
+    isPremium: false,
+    content: `# Lecture et écriture CP : Les premiers mots
+
+## Objectifs du cours
+- Reconnaître les lettres de l'alphabet
+- Former des syllabes simples
+- Lire ses premiers mots
+- Écrire en lettres cursives
+
+## 1. L'alphabet
+### Les voyelles
+**A - E - I - O - U - Y**
+
+Exercice : Répète chaque voyelle à voix haute.
+
+### Les consonnes
+**B - C - D - F - G - H - J - K - L - M - N - P - Q - R - S - T - V - W - X - Z**
+
+## 2. Formation des syllabes
+### Syllabes simples (Consonne + Voyelle)
+- BA - BE - BI - BO - BU
+- CA - CE - CI - CO - CU  
+- DA - DE - DI - DO - DU
+
+### Premiers mots
+- **PAPA** = PA + PA
+- **MAMA** = MA + MA
+- **BEBE** = BE + BÉ
+
+## 3. Lecture progressive
+### Étape 1 : Mots de 2 syllabes
+- MOTO
+- CAFÉ  
+- BÉBÉ
+- PHOTO
+
+### Étape 2 : Mots de 3 syllabes
+- BANANE
+- TOMATE
+- CAMÉRA
+
+## 4. Écriture cursive
+### Formation des lettres
+1. Tenir correctement son crayon
+2. Respecter le sens d'écriture
+3. Relier les lettres entre elles
+
+### Exercices d'écriture
+- Tracer des boucles
+- Écrire son prénom
+- Copier des mots simples
+
+## Jeux et activités
+- Loto des lettres
+- Memory des syllabes  
+- Dictée de mots simples
+
+## Évaluation
+À la fin de ce cours, l'enfant sait :
+✓ Reconnaître toutes les lettres
+✓ Lire des mots simples
+✓ Écrire en cursive`
+  },
+  {
+    id: "3",
+    title: "Électricité - Circuits et lois fondamentales",
+    description: "Maîtrisez les concepts électriques de base : intensité, tension, résistance. Lois d'Ohm et de Kirchhoff avec applications pratiques.",
+    level: "Lycée",
+    subject: "Physique-Chimie",
+    difficulty: "Avancé",
+    duration: "120 min",
+    pages: 68,
+    downloads: 1456,
+    thumbnail: coursePhysicsLycee,
+    hasVideo: true,
+    hasPdf: true,
+    isPremium: true,
+    content: `# Électricité : Circuits et lois fondamentales
+
+## Introduction
+L'électricité est omniprésente dans notre quotidien. Ce cours vous permettra de comprendre les phénomènes électriques fondamentaux.
+
+## 1. Grandeurs électriques
+### L'intensité électrique (I)
+- **Définition** : Quantité de charge électrique qui traverse une section de conducteur par unité de temps
+- **Unité** : Ampère (A)
+- **Mesure** : Ampèremètre (en série)
+
+### La tension électrique (U)
+- **Définition** : Différence de potentiel entre deux points d'un circuit
+- **Unité** : Volt (V)
+- **Mesure** : Voltmètre (en parallèle)
+
+### La résistance électrique (R)
+- **Définition** : Opposition qu'un matériau présente au passage du courant
+- **Unité** : Ohm (Ω)
+- **Mesure** : Ohmmètre
+
+## 2. Loi d'Ohm
+### Énoncé
+**U = R × I**
+
+Où :
+- U = tension (V)
+- R = résistance (Ω)  
+- I = intensité (A)
+
+### Applications
+- Calculer la tension aux bornes d'une résistance
+- Déterminer l'intensité dans un circuit
+- Trouver la valeur d'une résistance
+
+## 3. Lois de Kirchhoff
+### Loi des nœuds
+La somme des intensités qui arrivent à un nœud = la somme des intensités qui en repartent.
+
+### Loi des mailles
+Dans une maille fermée, la somme algébrique des tensions = 0.
+
+## 4. Circuits série et parallèle
+### Circuit série
+- Même intensité partout
+- Tensions s'ajoutent
+- Résistances s'ajoutent : R_total = R1 + R2 + R3
+
+### Circuit parallèle  
+- Même tension partout
+- Intensités s'ajoutent
+- 1/R_total = 1/R1 + 1/R2 + 1/R3
+
+## 5. Puissance électrique
+### Formule
+**P = U × I = R × I² = U²/R**
+
+### Unité
+Watt (W)
+
+## Exercices d'application
+1. Un résistor de 100Ω est traversé par un courant de 0,5A. Calculer la tension.
+2. Dans un circuit série avec deux résistors (200Ω et 300Ω), l'intensité est de 0,2A. Calculer la tension totale.
+
+## Applications pratiques
+- Éclairage domestique
+- Chauffage électrique
+- Électronique
+
+## Sécurité électrique
+⚠️ **Attention** : Ne jamais manipuler l'électricité sans précautions !`
+  },
+  {
+    id: "4",
+    title: "L'Afrique précoloniale - Les grands empires",
+    description: "Découvrez la richesse des civilisations africaines avant la colonisation : Empire du Ghana, Mali, Songhaï et leurs contributions.",
     level: "Collège",
     subject: "Histoire",
-    duration: "75 min",
-    pages: 38,
-    downloads: 1678,
     difficulty: "Intermédiaire",
-    pdfUrl: "#",
-    viewUrl: "#"
-  },
-  {
-    id: 6,
-    title: "Physique-Chimie 3ème - L'électricité",
-    description: "Circuit électrique et lois fondamentales",
-    level: "Collège",
-    subject: "Physique-Chimie",
-    duration: "120 min",
-    pages: 52,
-    downloads: 1456,
-    difficulty: "Avancé",
-    pdfUrl: "#",
-    viewUrl: "#"
-  },
-  
-  // Lycée
-  {
-    id: 7,
-    title: "Mathématiques Terminale C - Analyse",
-    description: "Fonctions, dérivées et intégrales",
-    level: "Lycée",
-    subject: "Mathématiques",
-    duration: "150 min",
-    pages: 68,
-    downloads: 3245,
-    difficulty: "Avancé",
-    pdfUrl: "#",
-    viewUrl: "#"
-  },
-  {
-    id: 8,
-    title: "Philosophie Terminale - Introduction",
-    description: "Les grands concepts philosophiques",
-    level: "Lycée",
-    subject: "Philosophie",
-    duration: "90 min",
+    duration: "75 min",
     pages: 42,
-    downloads: 1890,
-    difficulty: "Avancé",
-    pdfUrl: "#",
-    viewUrl: "#"
+    downloads: 1678,
+    thumbnail: courseHistoryAfrica,
+    hasVideo: true,
+    hasPdf: true,
+    isPremium: false,
+    content: `# L'Afrique précoloniale : Les grands empires
+
+## Introduction
+Contrairement aux idées reçues, l'Afrique possédait des civilisations brillantes bien avant l'arrivée des Européens. Explorons ces empires fascinants.
+
+## 1. L'Empire du Ghana (300-1200)
+### Localisation
+Situé entre les fleuves Sénégal et Niger (actuel Mali et Mauritanie).
+
+### Richesses
+- **Or** : Mines de Bambuk et Bure
+- **Sel** : Commerce transsaharien
+- **Contrôle des routes commerciales**
+
+### Organisation
+- Capitale : Koumbi Saleh
+- Roi appelé "Ghana" (chef de guerre)
+- Armée puissante de 200 000 hommes
+
+### Déclin
+- Invasions almoravides (1076)
+- Sécheresse et famines
+
+## 2. L'Empire du Mali (1235-1500)
+### Fondation
+Créé par Soundiata Keïta après la bataille de Kirina (1235).
+
+### Apogée sous Mansa Moussa (1312-1337)
+- Pèlerinage à La Mecque (1324-1325)
+- Distribution d'or au Caire
+- Extension de Gao à l'Atlantique
+
+### Richesses et commerce
+- Mines d'or de Bambuk
+- Université de Tombouctou
+- Manuscrits de Tombouctou (400 000 documents)
+
+### Villes importantes
+- **Tombouctou** : Centre intellectuel
+- **Djenné** : Commerce et artisanat
+- **Gao** : Port sur le Niger
+
+## 3. L'Empire Songhaï (1464-1591)
+### Fondation
+Sonni Ali Ber conquiert Tombouctou (1468).
+
+### Apogée sous Askia Mohammed (1493-1528)
+- Réformes administratives
+- Justice et tolérance religieuse
+- Développement de l'éducation
+
+### Organisation administrative
+- Provinces gouvernées par des farba
+- Armée professionnelle
+- Système fiscal organisé
+
+### Chute
+- Invasion marocaine (1591)
+- Bataille de Tondibi
+
+## Conclusion
+L'Afrique précoloniale était riche de civilisations brillantes qui ont contribué au développement de l'humanité. Ces empires nous rappellent la grandeur du passé africain.`
   },
   {
-    id: 9,
-    title: "SVT 1ère D - La génétique",
-    description: "Hérédité et transmission des caractères",
-    level: "Lycée",
-    subject: "SVT",
-    duration: "105 min",
-    pages: 55,
-    downloads: 2167,
-    difficulty: "Avancé",
-    pdfUrl: "#",
-    viewUrl: "#"
-  },
-  
-  // Université
-  {
-    id: 10,
-    title: "Droit Civil L1 - Introduction générale",
-    description: "Principes fondamentaux du droit civil ivoirien",
-    level: "Université",
-    subject: "Droit",
-    duration: "180 min",
-    pages: 95,
-    downloads: 2845,
-    difficulty: "Expert",
-    pdfUrl: "#",
-    viewUrl: "#"
-  },
-  {
-    id: 11,
-    title: "Économie L2 - Macroéconomie",
-    description: "Les grands agrégats économiques",
-    level: "Université",
-    subject: "Économie",
-    duration: "160 min",
-    pages: 78,
-    downloads: 1934,
-    difficulty: "Expert",
-    pdfUrl: "#",
-    viewUrl: "#"
-  },
-  {
-    id: 12,
-    title: "Informatique L3 - Programmation Java",
-    description: "Concepts avancés de la programmation orientée objet",
+    id: "5",
+    title: "Programmation Java - Concepts avancés POO",
+    description: "Maîtrisez la programmation orientée objet en Java : héritage, polymorphisme, encapsulation, interfaces et design patterns.",
     level: "Université",
     subject: "Informatique",
-    duration: "200 min",
-    pages: 120,
-    downloads: 3456,
     difficulty: "Expert",
-    pdfUrl: "#",
-    viewUrl: "#"
+    duration: "180 min",
+    pages: 95,
+    downloads: 3456,
+    thumbnail: courseComputerScience,
+    hasVideo: true,
+    hasPdf: true,
+    isPremium: true,
+    content: `# Programmation Java : Concepts avancés POO
+
+## Introduction
+Java est un langage orienté objet puissant. Ce cours approfondit les concepts avancés de la POO pour développer des applications robustes.
+
+## 1. Rappels des fondamentaux
+### Classes et Objets
+\`\`\`java
+public class Personne {
+    private String nom;
+    private int age;
+    
+    public Personne(String nom, int age) {
+        this.nom = nom;
+        this.age = age;
+    }
+    
+    public String getNom() { return nom; }
+    public int getAge() { return age; }
+}
+\`\`\`
+
+### Encapsulation
+- Attributs privés
+- Getters/Setters
+- Contrôle d'accès
+
+## 2. Héritage
+### Principe
+Une classe peut hériter des propriétés d'une autre classe.
+
+\`\`\`java
+public class Etudiant extends Personne {
+    private String numEtudiant;
+    
+    public Etudiant(String nom, int age, String numEtudiant) {
+        super(nom, age);
+        this.numEtudiant = numEtudiant;
+    }
+    
+    public String getNumEtudiant() { return numEtudiant; }
+}
+\`\`\`
+
+## 3. Polymorphisme
+### Définition
+Capacité d'un objet à prendre plusieurs formes.
+
+## 4. Interfaces
+### Définition
+Contrat que doit respecter une classe.
+
+## 5. Design Patterns courants
+### Singleton
+Pattern créationnel garantissant une seule instance.
+
+### Factory
+Pattern créationnel pour créer des objets.
+
+### Observer
+Pattern comportemental pour la notification d'événements.
+
+## Conclusion
+La POO en Java offre une structure robuste pour développer des applications complexes. Maîtriser ces concepts est essentiel pour tout développeur Java.`
   }
 ];
 
@@ -325,74 +544,7 @@ const Courses = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredCourses.map((course) => (
-              <Card key={course.id} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in">
-                <CardHeader className="pb-4">
-                  <div className="flex items-start justify-between mb-2">
-                    <div className="flex items-center gap-2">
-                      {getLevelIcon(course.level)}
-                      <Badge variant="secondary" className="text-xs">
-                        {course.level}
-                      </Badge>
-                    </div>
-                    <Badge className={getDifficultyColor(course.difficulty)}>
-                      {course.difficulty}
-                    </Badge>
-                  </div>
-                  <CardTitle className="text-lg line-clamp-2 group-hover:text-primary transition-colors">
-                    {course.title}
-                  </CardTitle>
-                  <CardDescription className="line-clamp-2">
-                    {course.description}
-                  </CardDescription>
-                </CardHeader>
-                
-                <CardContent>
-                  <div className="space-y-4">
-                    {/* Course Info */}
-                    <div className="flex items-center justify-between text-sm text-muted-foreground">
-                      <div className="flex items-center gap-1">
-                        <Clock className="h-3 w-3" />
-                        {course.duration}
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <BookOpen className="h-3 w-3" />
-                        {course.pages} pages
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Download className="h-3 w-3" />
-                        {course.downloads}
-                      </div>
-                    </div>
-                    
-                    {/* Subject Badge */}
-                    <Badge variant="outline" className="w-fit">
-                      {course.subject}
-                    </Badge>
-                    
-                    {/* Action Buttons */}
-                    <div className="flex gap-2 pt-2">
-                      <Button 
-                        variant="default" 
-                        size="sm" 
-                        className="flex-1"
-                        onClick={() => window.open(course.viewUrl, '_blank')}
-                      >
-                        <Eye className="h-4 w-4 mr-2" />
-                        Consulter
-                      </Button>
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
-                        className="flex-1"
-                        onClick={() => window.open(course.pdfUrl, '_blank')}
-                      >
-                        <Download className="h-4 w-4 mr-2" />
-                        Télécharger
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              <CourseCard key={course.id} course={course} />
             ))}
           </div>
           
