@@ -11,9 +11,6 @@ import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Chatbot from "@/components/Chatbot";
 import ExerciseCard from "@/components/ExerciseCard";
 import exerciseGeneral from "@/assets/exercise-general.jpg";
-import courseMathCollege from "@/assets/course-math-college.jpg";
-import courseFrenchPrimary from "@/assets/course-french-primary.jpg";
-import coursePhysicsLycee from "@/assets/course-physics-lycee.jpg";
 
 const exercises = [
   {
@@ -26,7 +23,7 @@ const exercises = [
     duration: "15 min",
     points: 100,
     type: "QCM",
-    thumbnail: courseMathCollege,
+    thumbnail: exerciseGeneral,
     hasVideo: false,
     hasPdf: true,
     questions: 5,
