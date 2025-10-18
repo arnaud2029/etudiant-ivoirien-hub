@@ -167,8 +167,8 @@ const CourseCard = ({ course }: CourseCardProps) => {
                   Consulter
                 </Button>
               </DialogTrigger>
-              <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
-                <DialogHeader>
+              <DialogContent className="max-w-7xl max-h-[90vh] overflow-hidden p-0">
+                <DialogHeader className="p-6 pb-4">
                   <DialogTitle className="flex items-center gap-2">
                     {getLevelIcon(course.level)}
                     {course.title}
@@ -177,12 +177,22 @@ const CourseCard = ({ course }: CourseCardProps) => {
                     {course.description}
                   </DialogDescription>
                 </DialogHeader>
-                <div className="mt-4">
-                  <div className="prose prose-sm max-w-none">
-                    <div dangerouslySetInnerHTML={{ 
-                      __html: course.content.replace(/\n/g, '<br/>').replace(/#{1,6} /g, '<h3>').replace(/<h3>/g, '<h3 class="text-lg font-semibold mt-4 mb-2">') 
-                    }} />
-                  </div>
+                <div className="h-[calc(90vh-120px)]">
+                  {course.pdfUrl ? (
+                    <iframe
+                      src={course.pdfUrl}
+                      className="w-full h-full border-0"
+                      title={course.title}
+                    />
+                  ) : (
+                    <div className="overflow-y-auto h-full px-6 pb-6">
+                      <div className="prose prose-sm max-w-none">
+                        <div dangerouslySetInnerHTML={{ 
+                          __html: course.content.replace(/\n/g, '<br/>').replace(/#{1,6} /g, '<h3>').replace(/<h3>/g, '<h3 class="text-lg font-semibold mt-4 mb-2">') 
+                        }} />
+                      </div>
+                    </div>
+                  )}
                 </div>
               </DialogContent>
             </Dialog>
