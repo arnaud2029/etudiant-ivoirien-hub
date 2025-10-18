@@ -32,6 +32,7 @@ interface CourseCardProps {
     hasPdf: boolean;
     content: string;
     isPremium?: boolean;
+    pdfUrl?: string;
   };
 }
 
@@ -59,13 +60,24 @@ const CourseCard = ({ course }: CourseCardProps) => {
   };
 
   const handleDownload = () => {
-    // Simuler un téléchargement
-    const element = document.createElement('a');
-    element.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(course.content);
-    element.download = `${course.title}.txt`;
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
+    if (course.pdfUrl) {
+      // Télécharger le PDF réel
+      const link = document.createElement('a');
+      link.href = course.pdfUrl;
+      link.download = `${course.title}.pdf`;
+      link.target = '_blank';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      // Télécharger le contenu en texte (fallback)
+      const element = document.createElement('a');
+      element.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(course.content);
+      element.download = `${course.title}.txt`;
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+    }
   };
 
   return (

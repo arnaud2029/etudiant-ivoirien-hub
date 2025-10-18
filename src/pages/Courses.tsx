@@ -6,592 +6,97 @@ import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Chatbot from "@/components/Chatbot";
 import CourseCard from "@/components/CourseCard";
-import courseMathCollege from "@/assets/course-math-college.jpg";
-import courseFrenchPrimary from "@/assets/course-french-primary.jpg";
-import coursePhysicsLycee from "@/assets/course-physics-lycee.jpg";
-import courseHistoryAfrica from "@/assets/course-history-africa.jpg";
-import courseComputerScience from "@/assets/course-computer-science.jpg";
+import coursePythonCover from "@/assets/course-python-cover.jpg";
+import courseProgrammationCover from "@/assets/course-programmation-cover.jpg";
 
 const courses = [
   {
     id: "1",
-    title: "Géométrie plane - Les figures de base",
-    description: "Découvrez les propriétés des triangles, carrés, rectangles et cercles. Cours complet avec exercices pratiques et applications concrètes.",
-    level: "Collège",
-    subject: "Mathématiques",
-    difficulty: "Intermédiaire",
-    duration: "90 min",
-    pages: 45,
-    downloads: 2134,
-    thumbnail: courseMathCollege,
-    hasVideo: true,
+    title: "Cours de Python - Introduction à la programmation Python pour la biologie",
+    description: "Cours complet de Python par l'Université Paris Cité. Couvre les variables, listes, boucles, fichiers, modules et bien plus. Idéal pour débutants en programmation scientifique.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Débutant à Intermédiaire",
+    duration: "Variable (cours complet)",
+    pages: 50,
+    downloads: 0,
+    thumbnail: coursePythonCover,
+    hasVideo: false,
     hasPdf: true,
     isPremium: false,
-    content: `# Géométrie plane : Les figures de base
+    pdfUrl: "/pdfs/cours-python.pdf",
+    content: `# Cours de Python
+# Introduction à la programmation Python pour la biologie
 
-## Chapitre 1 : Introduction à la géométrie
-### 1.1 Qu'est-ce que la géométrie ?
-La géométrie est une branche des mathématiques qui étudie les formes, les tailles, les positions relatives des figures et les propriétés de l'espace.
+**Par Patrick Fuchs et Pierre Poulain**
+**Université Paris Cité, France**
 
-### 1.2 Vocabulaire de base
-- **Point** : Position précise dans l'espace (noté A, B, C...)
-- **Droite** : Ligne infinie dans les deux sens
-- **Segment** : Portion de droite limitée par deux points
-- **Demi-droite** : Portion de droite limitée d'un seul côté
+Ce cours complet couvre tous les aspects fondamentaux de Python :
 
-## Chapitre 2 : Les triangles
-### 2.1 Définition et propriétés
-Un triangle est un polygone à trois côtés et trois angles. La somme de ses angles intérieurs est toujours égale à 180°.
+## Chapitres principaux :
+- Introduction à Python et au shell
+- Variables et types de données
+- Affichage et formatage
+- Listes et manipulation de données
+- Boucles (for, while) et comparaisons
+- Tests et conditions
+- Fonctions
+- Modules et bibliothèques
+- Fichiers (lecture/écriture)
+- Plus de 100 pages de contenu pédagogique
 
-### 2.2 Classification par les côtés
-- **Triangle équilatéral** : 3 côtés égaux, 3 angles de 60°
-- **Triangle isocèle** : 2 côtés égaux, 2 angles égaux
-- **Triangle scalène** : 3 côtés inégaux, 3 angles inégaux
+**Licence :** Creative Commons BY-SA 3.0 FR
 
-### 2.3 Classification par les angles
-- **Triangle rectangle** : un angle de 90°
-- **Triangle obtus** : un angle > 90°
-- **Triangle aigu** : tous les angles < 90°
-
-### 2.4 Théorème de Pythagore
-Dans un triangle rectangle ABC rectangle en C :
-**AB² = AC² + BC²**
-
-**Exercice d'application :**
-Triangle rectangle avec AC = 3 cm et BC = 4 cm
-AB² = 3² + 4² = 9 + 16 = 25
-Donc AB = 5 cm
-
-## Chapitre 3 : Les quadrilatères
-### 3.1 Le carré
-**Propriétés :**
-- 4 côtés égaux
-- 4 angles droits (90°)
-- Diagonales égales et perpendiculaires
-- Aire = côté²
-- Périmètre = 4 × côté
-
-### 3.2 Le rectangle
-**Propriétés :**
-- Côtés opposés égaux et parallèles
-- 4 angles droits
-- Diagonales égales
-- Aire = longueur × largeur
-- Périmètre = 2(longueur + largeur)
-
-### 3.3 Le losange
-**Propriétés :**
-- 4 côtés égaux
-- Côtés opposés parallèles
-- Diagonales perpendiculaires
-- Aire = (d₁ × d₂) / 2
-
-### 3.4 Le parallélogramme
-**Propriétés :**
-- Côtés opposés égaux et parallèles
-- Angles opposés égaux
-- Aire = base × hauteur
-
-## Chapitre 4 : Le cercle
-### 4.1 Définitions
-- **Centre** : Point équidistant de tous les points du cercle
-- **Rayon** : Distance du centre à un point du cercle
-- **Diamètre** : Segment passant par le centre (= 2 × rayon)
-- **Corde** : Segment joignant deux points du cercle
-- **Arc** : Portion du cercle
-
-### 4.2 Formules importantes
-- **Circonférence** : C = 2πr = πd
-- **Aire** : A = πr²
-
-**Exemple :**
-Cercle de rayon 5 cm :
-- Circonférence = 2π × 5 = 10π ≈ 31,4 cm
-- Aire = π × 5² = 25π ≈ 78,5 cm²
-
-## Chapitre 5 : Constructions géométriques
-### 5.1 Outils nécessaires
-- Règle graduée
-- Compas
-- Équerre
-- Rapporteur
-
-### 5.2 Constructions de base
-1. **Perpendiculaire à une droite**
-2. **Bissectrice d'un angle**
-3. **Médiatrice d'un segment**
-4. **Triangle connaissant ses trois côtés**
-
-## Exercices d'application
-### Exercice 1 : Aires et périmètres
-Calculer l'aire et le périmètre d'un rectangle de 8 cm × 5 cm.
-**Solution :**
-- Aire = 8 × 5 = 40 cm²
-- Périmètre = 2(8 + 5) = 26 cm
-
-### Exercice 2 : Théorème de Pythagore
-Dans un triangle rectangle, les côtés de l'angle droit mesurent 6 cm et 8 cm. Calculer l'hypoténuse.
-**Solution :**
-h² = 6² + 8² = 36 + 64 = 100
-h = 10 cm
-
-### Exercice 3 : Cercle
-Un cercle a une circonférence de 31,4 cm. Calculer son rayon et son aire.
-**Solution :**
-C = 2πr → 31,4 = 2πr → r ≈ 5 cm
-A = πr² = π × 5² ≈ 78,5 cm²
-
-## Applications pratiques
-- **Architecture** : Conception de bâtiments, calcul de surfaces
-- **Ingénierie** : Calcul de structures, résistance des matériaux  
-- **Art** : Proportions, perspectives, motifs géométriques
-- **Navigation** : Triangulation, calcul de distances
-- **Informatique** : Graphisme, modélisation 3D
-
-## Conclusion
-La géométrie plane constitue les fondations de la géométrie. Maîtriser ces concepts est essentiel pour aborder la géométrie dans l'espace et de nombreuses applications pratiques.`
+Téléchargez le PDF complet pour accéder à l'intégralité du cours avec exemples et exercices.`
   },
   {
     id: "2", 
-    title: "Lecture et écriture CP - Les premiers mots",
-    description: "Apprentissage progressif de la lecture et de l'écriture. Méthode syllabique avec exercices ludiques et interactifs.",
-    level: "Primaire",
-    subject: "Français", 
+    title: "Les bases de la programmation",
+    description: "Introduction complète à la programmation informatique. Découvrez ce qu'est un programme, les langages de programmation, les IDE et les bonnes pratiques pour bien débuter.",
+    level: "Débutant",
+    subject: "Informatique", 
     difficulty: "Débutant",
-    duration: "45 min",
-    pages: 32,
-    downloads: 890,
-    thumbnail: courseFrenchPrimary,
-    hasVideo: true,
+    duration: "Variable (cours complet)",
+    pages: 20,
+    downloads: 0,
+    thumbnail: courseProgrammationCover,
+    hasVideo: false,
     hasPdf: true,
     isPremium: false,
-    content: `# Lecture et écriture CP : Les premiers mots
-
-## Chapitre 1 : L'alphabet et les sons
-### 1.1 Les voyelles
-**A - E - I - O - U - Y**
-
-Les voyelles sont des sons qu'on peut prononcer seuls, la bouche ouverte.
-- **A** : comme dans "PAPA"
-- **E** : comme dans "BÉBÉ"  
-- **I** : comme dans "MIDI"
-- **O** : comme dans "MOTO"
-- **U** : comme dans "LUNE"
-
-**Activité 1 :** Entoure les voyelles dans ces mots : MAISON, ÉCOLE, JARDIN
-
-### 1.2 Les consonnes
-**B - C - D - F - G - H - J - K - L - M - N - P - Q - R - S - T - V - W - X - Z**
-
-Les consonnes ont besoin des voyelles pour former des sons.
-
-**Méthode d'apprentissage :**
-1. Prononcer le son de la lettre
-2. L'associer à un mot-référence
-3. S'entraîner à la tracer
-
-## Chapitre 2 : Formation des syllabes
-### 2.1 Principe syllabique
-**Consonne + Voyelle = Syllabe**
-
-Exemples :
-- B + A = BA
-- M + I = MI
-- R + O = RO
-
-### 2.2 Familles de syllabes
-**Famille du B :**
-BA - BE - BI - BO - BU
-
-**Famille du M :**
-MA - ME - MI - MO - MU
-
-**Famille du L :**
-LA - LE - LI - LO - LU
-
-**Exercice :** Lis ces syllabes à voix haute :
-PA - PE - PI - PO - PU
-DA - DE - DI - DO - DU
-
-## Chapitre 3 : Les premiers mots
-### 3.1 Mots de 2 syllabes
-Une fois les syllabes maîtrisées, on peut former des mots :
-
-**Mots simples :**
-- PAPA = PA + PA
-- MAMA = MA + MA  
-- PIPI = PI + PI
-- BOBO = BO + BO
-
-**Autres mots courants :**
-- BÉBÉ = BÉ + BÉ
-- DODO = DO + DO
-- LULU = LU + LU
-
-### 3.2 Mots du quotidien
-**À la maison :**
-- CANAPÉ (CA-NA-PÉ)
-- LAVABO (LA-VA-BO) 
-- RADIO (RA-DI-O)
-
-**À l'école :**
-- BUREAU (BU-REAU)
-- CAHIER (CA-HIER)
-- CRAYON (CRAY-ON)
-
-**Les animaux :**
-- LAPIN (LA-PIN)
-- CHEVAL (CHE-VAL)
-- CANARD (CA-NARD)
-
-## Chapitre 4 : Écriture cursive
-### 4.1 Préparation à l'écriture
-**Position du corps :**
-- Dos droit
-- Pieds au sol
-- Cahier incliné
-
-**Tenue du crayon :**
-- Pince avec pouce et index
-- Majeur pour soutenir
-- Autres doigts repliés
-
-### 4.2 Tracé des lettres
-**Lettres rondes :** a, o, d, g, q
-**Lettres à boucles :** b, f, h, k, l
-**Lettres à ponts :** m, n, p, r
-
-**Sens d'écriture :**
-Toujours de gauche à droite, du haut vers le bas.
-
-### 4.3 Liaisons entre lettres
-En cursive, les lettres se lient entre elles :
-- ma → m reliée à a
-- to → t reliée à o  
-- li → l reliée à i
-
-## Chapitre 5 : Exercices progressifs
-### 5.1 Niveau débutant
-1. **Reconnaissance de lettres**
-   Retrouve la lettre M dans : MAISON, AMOUR, PLUME
-
-2. **Formation de syllabes**
-   Relie les consonnes aux voyelles :
-   M + A = ?
-   L + I = ?
-   R + O = ?
-
-### 5.2 Niveau intermédiaire  
-3. **Lecture de mots simples**
-   Lis ces mots : MOTO, CAFÉ, RADIS, SALADE
-
-4. **Dictée de syllabes**
-   Écris sous la dictée : MA, LI, BO, PU, DA
-
-### 5.3 Niveau avancé
-5. **Lecture de phrases**
-   "Maman lit une histoire à Léa."
-   "Papa répare la moto rouge."
-
-6. **Production d'écrits**
-   Écris ton prénom en cursive.
-   Écris le nom de ton animal préféré.
-
-## Chapitre 6 : Jeux éducatifs
-### 6.1 Le loto des lettres
-Matériel : Cartes avec lettres et images
-Règle : Associer chaque lettre à un mot qui commence par cette lettre.
-
-### 6.2 Memory des syllabes
-Matériel : Cartes avec syllabes identiques
-Règle : Retrouver les paires de syllabes identiques.
-
-### 6.3 La chasse aux mots
-Dans la classe, trouve 5 objets dont le nom commence par la lettre B.
-
-## Évaluation progressive
-### Semaine 1-2 : Voyelles
-✓ Je reconnais toutes les voyelles
-✓ Je sais les prononcer
-✓ Je peux les écrire
-
-### Semaine 3-4 : Consonnes simples
-✓ Je reconnais B, M, L, R, P, D
-✓ Je forme des syllabes simples
-✓ Je lis mes premières syllabes
-
-### Semaine 5-6 : Premiers mots
-✓ Je lis des mots de 2 syllabes  
-✓ Je commence à écrire des mots simples
-✓ Je reconnais des mots courants
-
-### Semaine 7-8 : Phrases simples
-✓ Je lis des phrases courtes
-✓ Je comprends ce que je lis
-✓ J'écris mon prénom et des mots familiers
-
-## Ressources pour approfondir
-- **Livres de première lecture** : Collection "J'apprends à lire"
-- **Applications éducatives** : Jeux de syllabe sur tablette  
-- **Activités manuelles** : Lettres rugueuses, alphabet mobile
-- **Comptines** : Chansons pour mémoriser l'alphabet
-
-## Conseils aux parents
-1. **Lire ensemble** tous les jours (15 minutes minimum)
-2. **Encourager** sans corriger constamment
-3. **Jouer** avec les mots et les sons
-4. **Être patient**, chaque enfant a son rythme
-5. **Valoriser** les progrès même petits
-
-## Conclusion
-L'apprentissage de la lecture et de l'écriture est un processus progressif qui demande du temps et de la patience. Avec de la pratique quotidienne et des encouragements, chaque enfant peut réussir à maîtriser ces compétences fondamentales.`
-  },
-  {
-    id: "3",
-    title: "Électricité - Circuits et lois fondamentales",
-    description: "Maîtrisez les concepts électriques de base : intensité, tension, résistance. Lois d'Ohm et de Kirchhoff avec applications pratiques.",
-    level: "Lycée",
-    subject: "Physique-Chimie",
-    difficulty: "Avancé",
-    duration: "120 min",
-    pages: 68,
-    downloads: 1456,
-    thumbnail: coursePhysicsLycee,
-    hasVideo: true,
-    hasPdf: true,
-    isPremium: true,
-    content: `# Électricité : Circuits et lois fondamentales
-
-## Introduction
-L'électricité est omniprésente dans notre quotidien. Ce cours vous permettra de comprendre les phénomènes électriques fondamentaux.
-
-## 1. Grandeurs électriques
-### L'intensité électrique (I)
-- **Définition** : Quantité de charge électrique qui traverse une section de conducteur par unité de temps
-- **Unité** : Ampère (A)
-- **Mesure** : Ampèremètre (en série)
-
-### La tension électrique (U)
-- **Définition** : Différence de potentiel entre deux points d'un circuit
-- **Unité** : Volt (V)
-- **Mesure** : Voltmètre (en parallèle)
-
-### La résistance électrique (R)
-- **Définition** : Opposition qu'un matériau présente au passage du courant
-- **Unité** : Ohm (Ω)
-- **Mesure** : Ohmmètre
-
-## 2. Loi d'Ohm
-### Énoncé
-**U = R × I**
-
-Où :
-- U = tension (V)
-- R = résistance (Ω)  
-- I = intensité (A)
-
-### Applications
-- Calculer la tension aux bornes d'une résistance
-- Déterminer l'intensité dans un circuit
-- Trouver la valeur d'une résistance
-
-## 3. Lois de Kirchhoff
-### Loi des nœuds
-La somme des intensités qui arrivent à un nœud = la somme des intensités qui en repartent.
-
-### Loi des mailles
-Dans une maille fermée, la somme algébrique des tensions = 0.
-
-## 4. Circuits série et parallèle
-### Circuit série
-- Même intensité partout
-- Tensions s'ajoutent
-- Résistances s'ajoutent : R_total = R1 + R2 + R3
-
-### Circuit parallèle  
-- Même tension partout
-- Intensités s'ajoutent
-- 1/R_total = 1/R1 + 1/R2 + 1/R3
-
-## 5. Puissance électrique
-### Formule
-**P = U × I = R × I² = U²/R**
-
-### Unité
-Watt (W)
-
-## Exercices d'application
-1. Un résistor de 100Ω est traversé par un courant de 0,5A. Calculer la tension.
-2. Dans un circuit série avec deux résistors (200Ω et 300Ω), l'intensité est de 0,2A. Calculer la tension totale.
-
-## Applications pratiques
-- Éclairage domestique
-- Chauffage électrique
-- Électronique
-
-## Sécurité électrique
-⚠️ **Attention** : Ne jamais manipuler l'électricité sans précautions !`
-  },
-  {
-    id: "4",
-    title: "L'Afrique précoloniale - Les grands empires",
-    description: "Découvrez la richesse des civilisations africaines avant la colonisation : Empire du Ghana, Mali, Songhaï et leurs contributions.",
-    level: "Collège",
-    subject: "Histoire",
-    difficulty: "Intermédiaire",
-    duration: "75 min",
-    pages: 42,
-    downloads: 1678,
-    thumbnail: courseHistoryAfrica,
-    hasVideo: true,
-    hasPdf: true,
-    isPremium: false,
-    content: `# L'Afrique précoloniale : Les grands empires
-
-## Introduction
-Contrairement aux idées reçues, l'Afrique possédait des civilisations brillantes bien avant l'arrivée des Européens. Explorons ces empires fascinants.
-
-## 1. L'Empire du Ghana (300-1200)
-### Localisation
-Situé entre les fleuves Sénégal et Niger (actuel Mali et Mauritanie).
-
-### Richesses
-- **Or** : Mines de Bambuk et Bure
-- **Sel** : Commerce transsaharien
-- **Contrôle des routes commerciales**
-
-### Organisation
-- Capitale : Koumbi Saleh
-- Roi appelé "Ghana" (chef de guerre)
-- Armée puissante de 200 000 hommes
-
-### Déclin
-- Invasions almoravides (1076)
-- Sécheresse et famines
-
-## 2. L'Empire du Mali (1235-1500)
-### Fondation
-Créé par Soundiata Keïta après la bataille de Kirina (1235).
-
-### Apogée sous Mansa Moussa (1312-1337)
-- Pèlerinage à La Mecque (1324-1325)
-- Distribution d'or au Caire
-- Extension de Gao à l'Atlantique
-
-### Richesses et commerce
-- Mines d'or de Bambuk
-- Université de Tombouctou
-- Manuscrits de Tombouctou (400 000 documents)
-
-### Villes importantes
-- **Tombouctou** : Centre intellectuel
-- **Djenné** : Commerce et artisanat
-- **Gao** : Port sur le Niger
-
-## 3. L'Empire Songhaï (1464-1591)
-### Fondation
-Sonni Ali Ber conquiert Tombouctou (1468).
-
-### Apogée sous Askia Mohammed (1493-1528)
-- Réformes administratives
-- Justice et tolérance religieuse
-- Développement de l'éducation
-
-### Organisation administrative
-- Provinces gouvernées par des farba
-- Armée professionnelle
-- Système fiscal organisé
-
-### Chute
-- Invasion marocaine (1591)
-- Bataille de Tondibi
-
-## Conclusion
-L'Afrique précoloniale était riche de civilisations brillantes qui ont contribué au développement de l'humanité. Ces empires nous rappellent la grandeur du passé africain.`
-  },
-  {
-    id: "5",
-    title: "Programmation Java - Concepts avancés POO",
-    description: "Maîtrisez la programmation orientée objet en Java : héritage, polymorphisme, encapsulation, interfaces et design patterns.",
-    level: "Université",
-    subject: "Informatique",
-    difficulty: "Expert",
-    duration: "180 min",
-    pages: 95,
-    downloads: 3456,
-    thumbnail: courseComputerScience,
-    hasVideo: true,
-    hasPdf: true,
-    isPremium: true,
-    content: `# Programmation Java : Concepts avancés POO
-
-## Introduction
-Java est un langage orienté objet puissant. Ce cours approfondit les concepts avancés de la POO pour développer des applications robustes.
-
-## 1. Rappels des fondamentaux
-### Classes et Objets
-\`\`\`java
-public class Personne {
-    private String nom;
-    private int age;
-    
-    public Personne(String nom, int age) {
-        this.nom = nom;
-        this.age = age;
-    }
-    
-    public String getNom() { return nom; }
-    public int getAge() { return age; }
-}
-\`\`\`
-
-### Encapsulation
-- Attributs privés
-- Getters/Setters
-- Contrôle d'accès
-
-## 2. Héritage
-### Principe
-Une classe peut hériter des propriétés d'une autre classe.
-
-\`\`\`java
-public class Etudiant extends Personne {
-    private String numEtudiant;
-    
-    public Etudiant(String nom, int age, String numEtudiant) {
-        super(nom, age);
-        this.numEtudiant = numEtudiant;
-    }
-    
-    public String getNumEtudiant() { return numEtudiant; }
-}
-\`\`\`
-
-## 3. Polymorphisme
-### Définition
-Capacité d'un objet à prendre plusieurs formes.
-
-## 4. Interfaces
-### Définition
-Contrat que doit respecter une classe.
-
-## 5. Design Patterns courants
-### Singleton
-Pattern créationnel garantissant une seule instance.
-
-### Factory
-Pattern créationnel pour créer des objets.
-
-### Observer
-Pattern comportemental pour la notification d'événements.
-
-## Conclusion
-La POO en Java offre une structure robuste pour développer des applications complexes. Maîtriser ces concepts est essentiel pour tout développeur Java.`
+    pdfUrl: "/pdfs/les-bases-de-la-programmation.pdf",
+    content: `# Les bases de la programmation
+
+Un cours d'introduction en douceur à la programmation informatique.
+
+## Table des matières :
+1. **Pourquoi la programmation ?**
+2. **Créer des programmes**
+   - Programmation dans un contexte donné
+   - Les programmes comme type de fichiers particulier
+3. **Au commencement était le code source**
+4. **Vers l'exécutable, et au-delà !**
+   - Langages compilés
+   - Langages interprétés
+   - Langages à machine virtuelle
+5. **Il y a programmer, et bien programmer**
+   - Les outils indispensables
+   - Les IDE
+   - Quelques outils supplémentaires
+   - Les bonnes pratiques
+
+## Objectifs :
+- Faire comprendre en quoi consiste la programmation
+- Introduire les notions et le vocabulaire essentiels
+- Présenter les principaux langages de programmation
+
+Idéal pour ceux qui n'ont jamais programmé et souhaitent comprendre les fondamentaux avant de se lancer.
+
+Téléchargez le PDF complet pour accéder à l'intégralité du cours.`
   }
 ];
 
 const levels = ["Tous", "Primaire", "Collège", "Lycée", "Université"];
-const subjects = ["Toutes", "Mathématiques", "Français", "Sciences", "Histoire", "Physique-Chimie", "SVT", "Philosophie", "Droit", "Économie", "Informatique"];
+const subjects = ["Toutes", "Informatique"];
 const difficulties = ["Tous", "Débutant", "Intermédiaire", "Avancé", "Expert"];
 
 const Courses = () => {
