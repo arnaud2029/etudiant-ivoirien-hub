@@ -17,6 +17,14 @@ import courseMobileMoneyCover from "@/assets/course-mobile-money-cover.jpg";
 import coursePoissonerieCover from "@/assets/course-poissonnerie-cover.jpg";
 import courseQuincaillerieCover from "@/assets/course-quincaillerie-cover.jpg";
 import course500IdeesCover from "@/assets/course-500-idees-cover.jpg";
+import courseLectureEcritureCover from "@/assets/course-lecture-ecriture-cover.jpg";
+import courseTestsCover from "@/assets/course-tests-cover.jpg";
+import courseLogiqueCover from "@/assets/course-logique-cover.jpg";
+import courseBouclesCover from "@/assets/course-boucles-cover.jpg";
+import courseTechniquesRussesCover from "@/assets/course-techniques-russes-cover.jpg";
+import courseTableauxMultiCover from "@/assets/course-tableaux-multi-cover.jpg";
+import courseFichiersCover from "@/assets/course-fichiers-cover.jpg";
+import courseProceduresCover from "@/assets/course-procedures-cover.jpg";
 
 const courses = [
   {
@@ -385,6 +393,226 @@ Une mine d'or pour entrepreneurs à la recherche d'opportunités.
 - Conseils de démarrage
 
 Parfait pour trouver l'inspiration et lancer votre projet entrepreneurial en Afrique.`
+  },
+  {
+    id: "13",
+    title: "Lecture et Écriture - Algorithmique",
+    description: "Découvrez les instructions de lecture et écriture en programmation pour permettre l'interaction avec l'utilisateur. Concepts essentiels pour tout programme interactif.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Débutant",
+    duration: "1-2 heures",
+    pages: 15,
+    downloads: 0,
+    thumbnail: courseLectureEcritureCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/lecture-et-ecriture.pdf",
+    content: `# Lecture et Écriture
+
+Cours sur les instructions d'entrée/sortie en programmation.
+
+## Points clés :
+- Instructions Lire et Écrire
+- Dialogue homme-machine
+- Contrôle de saisie
+- Affichage de résultats
+
+Apprenez à créer des programmes interactifs avec l'utilisateur.`
+  },
+  {
+    id: "14",
+    title: "Les Tests - Structures Conditionnelles",
+    description: "Maîtrisez les structures de test (SI...ALORS...SINON) en algorithmique. Apprenez à créer des conditions et à gérer différents scénarios dans vos programmes.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Débutant",
+    duration: "2-3 heures",
+    pages: 28,
+    downloads: 0,
+    thumbnail: courseTestsCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/les-tests.pdf",
+    content: `# Les Tests - Structures Alternatives
+
+Cours complet sur les structures conditionnelles en programmation.
+
+## Contenu :
+- Structure SI...ALORS...SINON
+- Conditions booléennes
+- Tests imbriqués
+- Exercices pratiques
+
+Devenez expert en logique conditionnelle et tests.`
+  },
+  {
+    id: "15",
+    title: "Encore de la Logique - Opérateurs ET/OU",
+    description: "Approfondissez votre compréhension des opérateurs logiques ET et OU. Transformations de Morgan, conditions composées et optimisation des tests.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Intermédiaire",
+    duration: "2-3 heures",
+    pages: 20,
+    downloads: 0,
+    thumbnail: courseLogiqueCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/encore-de-la-logique.pdf",
+    content: `# Encore de la Logique
+
+Perfectionnement en logique algorithmique et opérateurs booléens.
+
+## Thèmes abordés :
+- Opérateurs ET et OU
+- Transformations de Morgan
+- Conditions composées
+- Style et bonnes pratiques
+
+Un cours avancé pour maîtriser la logique en programmation.`
+  },
+  {
+    id: "16",
+    title: "Les Boucles - Structures Itératives",
+    description: "Apprenez à utiliser les boucles TANT QUE, POUR et autres structures répétitives. La clé pour automatiser vos traitements et créer des programmes puissants.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Intermédiaire",
+    duration: "3-4 heures",
+    pages: 35,
+    downloads: 0,
+    thumbnail: courseBouclesCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/les-boucles.pdf",
+    content: `# Les Boucles
+
+Cours essentiel sur les structures répétitives en programmation.
+
+## Sections :
+- Boucle TANT QUE
+- Boucle POUR
+- Contrôle de saisie
+- Compteurs et accumulateurs
+- Exercices progressifs
+
+Maîtrisez l'itération pour devenir un vrai programmeur.`
+  },
+  {
+    id: "17",
+    title: "Les Techniques Russes - Algorithmes Avancés",
+    description: "Découvrez des techniques algorithmiques avancées et des méthodes d'optimisation. Pour ceux qui veulent aller plus loin dans la maîtrise de l'algorithmique.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Avancé",
+    duration: "4-5 heures",
+    pages: 32,
+    downloads: 0,
+    thumbnail: courseTechniquesRussesCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: true,
+    pdfUrl: "/pdfs/techniques-russes.pdf",
+    content: `# Les Techniques Russes
+
+Algorithmes avancés et techniques d'optimisation.
+
+## Au programme :
+- Méthodes algorithmiques avancées
+- Optimisation de code
+- Techniques de résolution complexes
+- Cas pratiques et exercices
+
+Un cours premium pour les programmeurs expérimentés.`
+  },
+  {
+    id: "18",
+    title: "Tableaux Multidimensionnels - Structures de Données",
+    description: "Maîtrisez les tableaux à plusieurs dimensions (matrices, cubes de données). Manipulation avancée des structures de données en programmation.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Avancé",
+    duration: "3-4 heures",
+    pages: 30,
+    downloads: 0,
+    thumbnail: courseTableauxMultiCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/tableaux-multidimensionnels.pdf",
+    content: `# Tableaux Multidimensionnels
+
+Cours avancé sur les structures de données complexes.
+
+## Contenu :
+- Tableaux 2D (matrices)
+- Tableaux 3D et plus
+- Parcours et manipulation
+- Applications pratiques
+- Algorithmes sur matrices
+
+Devenez expert en structures de données multidimensionnelles.`
+  },
+  {
+    id: "19",
+    title: "Les Fichiers - Gestion des Données Persistantes",
+    description: "Apprenez à lire et écrire dans des fichiers pour sauvegarder et charger des données. Gestion de fichiers texte et binaires en programmation.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Intermédiaire",
+    duration: "3-4 heures",
+    pages: 28,
+    downloads: 0,
+    thumbnail: courseFichiersCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/les-fichiers.pdf",
+    content: `# Les Fichiers
+
+Gestion des fichiers et persistance des données.
+
+## Points clés :
+- Ouverture et fermeture de fichiers
+- Lecture et écriture
+- Fichiers texte vs binaires
+- Traitement séquentiel
+- Gestion d'erreurs
+
+Maîtrisez la persistance des données dans vos programmes.`
+  },
+  {
+    id: "20",
+    title: "Procédures et Fonctions - Programmation Modulaire",
+    description: "Découvrez la programmation modulaire avec les procédures et fonctions. Réutilisabilité, paramètres, et structuration efficace de votre code.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Intermédiaire",
+    duration: "4-5 heures",
+    pages: 40,
+    downloads: 0,
+    thumbnail: courseProceduresCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/procedures-et-fonctions.pdf",
+    content: `# Procédures et Fonctions
+
+Programmation modulaire et réutilisation du code.
+
+## Sujets traités :
+- Différence procédure/fonction
+- Paramètres et passage par valeur/référence
+- Variables locales et globales
+- Retour de valeurs
+- Bonnes pratiques de modularité
+
+Structurez efficacement vos programmes grâce à la modularité.`
   }
 ];
 
