@@ -8,6 +8,15 @@ import Chatbot from "@/components/Chatbot";
 import CourseCard from "@/components/CourseCard";
 import coursePythonCover from "@/assets/course-python-cover.jpg";
 import courseProgrammationCover from "@/assets/course-programmation-cover.jpg";
+import courseVariablesCover from "@/assets/course-variables-cover.jpg";
+import courseAlgorithmeCover from "@/assets/course-algorithme-cover.jpg";
+import courseBoulangerieCover from "@/assets/course-boulangerie-cover.jpg";
+import courseLavageAutoCover from "@/assets/course-lavage-auto-cover.jpg";
+import courseLocationVoitureCover from "@/assets/course-location-voiture-cover.jpg";
+import courseMobileMoneyCover from "@/assets/course-mobile-money-cover.jpg";
+import coursePoissonerieCover from "@/assets/course-poissonnerie-cover.jpg";
+import courseQuincaillerieCover from "@/assets/course-quincaillerie-cover.jpg";
+import course500IdeesCover from "@/assets/course-500-idees-cover.jpg";
 
 const courses = [
   {
@@ -92,11 +101,295 @@ Un cours d'introduction en douceur à la programmation informatique.
 Idéal pour ceux qui n'ont jamais programmé et souhaitent comprendre les fondamentaux avant de se lancer.
 
 Téléchargez le PDF complet pour accéder à l'intégralité du cours.`
+  },
+  {
+    id: "3",
+    title: "Les Variables - Algorithmique",
+    description: "Cours détaillé sur les variables en programmation : leur utilité, déclaration, types numériques et manipulation. Concepts fondamentaux pour tout programmeur.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Débutant",
+    duration: "2-3 heures",
+    pages: 25,
+    downloads: 0,
+    thumbnail: courseVariablesCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/les-variables.pdf",
+    content: `# Les Variables en Programmation
+
+Cours complet sur les variables en algorithmique et programmation.
+
+## Contenu du cours :
+- À quoi servent les variables ?
+- Déclaration des variables
+- Types numériques classiques
+- Manipulation et utilisation des variables
+- Bonnes pratiques de nommage
+
+Téléchargez le PDF pour accéder au cours complet avec exemples et exercices.`
+  },
+  {
+    id: "4",
+    title: "Introduction à l'Algorithmique",
+    description: "Découvrez les bases de l'algorithmique : qu'est-ce qu'un algorithme, comment penser algorithmiquement, et les fondamentaux pour résoudre des problèmes informatiques.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Débutant",
+    duration: "3-4 heures",
+    pages: 30,
+    downloads: 0,
+    thumbnail: courseAlgorithmeCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/introduction-algorithme.pdf",
+    content: `# Introduction à l'Algorithmique
+
+Un cours pour comprendre les fondements de la pensée algorithmique.
+
+## Points clés :
+- Qu'est-ce que l'algorithmique ?
+- Comment penser de façon algorithmique
+- Instructions et résolution de problèmes
+- Faut-il être matheux ?
+- Premiers pas en programmation
+
+Téléchargez le PDF complet pour démarrer votre apprentissage de l'algorithmique.`
+  },
+  {
+    id: "5",
+    title: "Plan d'Affaires - Boulangerie/Pâtisserie",
+    description: "Projet complet de mise en place d'une boulangerie industrielle au Sénégal. Analyse de marché, études financières, stratégie marketing et plan opérationnel détaillé.",
+    level: "Université",
+    subject: "Entrepreneuriat",
+    difficulty: "Intermédiaire",
+    duration: "5-6 heures",
+    pages: 45,
+    downloads: 0,
+    thumbnail: courseBoulangerieCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/plan-affaire-boulangerie.pdf",
+    content: `# Plan d'Affaires - Boulangerie/Pâtisserie
+
+Plan d'affaires complet pour la création d'une boulangerie industrielle.
+
+## Sections principales :
+- Résumé opérationnel
+- Présentation de l'offre
+- Description du marché
+- Étude financière
+- Stratégie marketing
+- Plan de mise en œuvre
+
+Un document professionnel pour entrepreneurs souhaitant se lancer dans la boulangerie.`
+  },
+  {
+    id: "6",
+    title: "Plan d'Affaires - Station de Lavage Auto",
+    description: "Business plan complet pour l'ouverture d'une station de lavage automobile. Étude de faisabilité, investissements nécessaires et projections financières.",
+    level: "Université",
+    subject: "Entrepreneuriat",
+    difficulty: "Intermédiaire",
+    duration: "4-5 heures",
+    pages: 40,
+    downloads: 0,
+    thumbnail: courseLavageAutoCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/plan-affaire-lavage-auto.pdf",
+    content: `# Plan d'Affaires - Station de Lavage Auto
+
+Guide complet pour créer une entreprise de lavage automobile rentable.
+
+## Contenu :
+- Analyse du marché automobile
+- Investissements et équipements
+- Stratégie de tarification
+- Plan financier détaillé
+- Marketing et acquisition clients
+
+Téléchargez le PDF pour accéder au plan d'affaires complet.`
+  },
+  {
+    id: "7",
+    title: "Plan d'Affaires - Location de Voitures",
+    description: "Projet détaillé de création d'une entreprise de location de véhicules. Stratégie commerciale, gestion de flotte et analyse de rentabilité.",
+    level: "Université",
+    subject: "Entrepreneuriat",
+    difficulty: "Intermédiaire",
+    duration: "5-6 heures",
+    pages: 42,
+    downloads: 0,
+    thumbnail: courseLocationVoitureCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/plan-affaire-location-voiture.pdf",
+    content: `# Plan d'Affaires - Location de Voitures
+
+Business plan professionnel pour le secteur de la location automobile.
+
+## Points essentiels :
+- Étude de marché sectorielle
+- Gestion de flotte automobile
+- Politique de tarification
+- Assurances et aspects légaux
+- Projections financières sur 3 ans
+
+Un guide complet pour entrepreneurs du secteur automobile.`
+  },
+  {
+    id: "8",
+    title: "Plan d'Affaires - Service Mobile Money",
+    description: "Plan d'affaires pour le lancement d'un service de transfert d'argent mobile. Analyse du secteur fintech, réglementation et modèle économique.",
+    level: "Université",
+    subject: "Entrepreneuriat",
+    difficulty: "Avancé",
+    duration: "6-7 heures",
+    pages: 50,
+    downloads: 0,
+    thumbnail: courseMobileMoneyCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/plan-affaire-mobile-money.pdf",
+    content: `# Plan d'Affaires - Service Mobile Money
+
+Guide pour créer un service de transfert d'argent mobile en Afrique.
+
+## Sections clés :
+- Écosystème fintech africain
+- Réglementation et licences
+- Infrastructure technique
+- Partenariats bancaires
+- Stratégie d'acquisition d'utilisateurs
+- Modèle de revenus
+
+Un document essentiel pour entrepreneurs fintech.`
+  },
+  {
+    id: "9",
+    title: "Plan d'Affaires - Poissonnerie (Partie 1)",
+    description: "Première partie du plan d'affaires pour l'ouverture d'une poissonnerie. Étude du marché de la pêche, approvisionnement et logistique.",
+    level: "Université",
+    subject: "Entrepreneuriat",
+    difficulty: "Intermédiaire",
+    duration: "4-5 heures",
+    pages: 38,
+    downloads: 0,
+    thumbnail: coursePoissonerieCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/plan-affaire-poissonnerie-1.pdf",
+    content: `# Plan d'Affaires - Poissonnerie (Partie 1)
+
+Business plan pour créer une entreprise dans le secteur de la pêche.
+
+## Contenu :
+- Marché de la pêche en Afrique
+- Chaîne d'approvisionnement
+- Conservation et logistique
+- Normes sanitaires
+- Analyse concurrentielle
+
+Première partie d'un guide complet sur l'entrepreneuriat dans la pêche.`
+  },
+  {
+    id: "10",
+    title: "Plan d'Affaires - Poissonnerie (Partie 2)",
+    description: "Suite du plan d'affaires pour poissonnerie. Focus sur les aspects financiers, marketing et développement commercial.",
+    level: "Université",
+    subject: "Entrepreneuriat",
+    difficulty: "Intermédiaire",
+    duration: "4-5 heures",
+    pages: 35,
+    downloads: 0,
+    thumbnail: coursePoissonerieCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/plan-affaire-poissonnerie-2.pdf",
+    content: `# Plan d'Affaires - Poissonnerie (Partie 2)
+
+Deuxième partie du business plan pour le secteur de la pêche.
+
+## Sections :
+- Plan financier détaillé
+- Stratégie marketing
+- Développement commercial
+- Ressources humaines
+- Plan de croissance
+
+Complément indispensable de la partie 1 pour entrepreneurs du secteur.`
+  },
+  {
+    id: "11",
+    title: "Plan d'Affaires - Quincaillerie",
+    description: "Business plan complet pour l'ouverture d'une quincaillerie. Gestion des stocks, fournisseurs, et stratégie commerciale dans le secteur du BTP.",
+    level: "Université",
+    subject: "Entrepreneuriat",
+    difficulty: "Intermédiaire",
+    duration: "5-6 heures",
+    pages: 43,
+    downloads: 0,
+    thumbnail: courseQuincaillerieCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/plan-affaire-quincaillerie.pdf",
+    content: `# Plan d'Affaires - Quincaillerie
+
+Guide entrepreneurial pour le secteur de la quincaillerie et du BTP.
+
+## Points principaux :
+- Marché du BTP en Afrique
+- Gestion des stocks et inventaire
+- Relations fournisseurs
+- Stratégie de tarification
+- Marketing B2B et B2C
+- Projections financières
+
+Un document complet pour entrepreneurs du secteur de la construction.`
+  },
+  {
+    id: "12",
+    title: "500 Idées de Business en Afrique",
+    description: "Compilation de 500 idées d'entreprises adaptées au contexte africain. Secteurs variés, opportunités de marché et conseils pour entrepreneurs innovants.",
+    level: "Université",
+    subject: "Entrepreneuriat",
+    difficulty: "Débutant",
+    duration: "Variable",
+    pages: 80,
+    downloads: 0,
+    thumbnail: course500IdeesCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: true,
+    pdfUrl: "/pdfs/500-idees-business-afrique.pdf",
+    content: `# 500 Idées de Business en Afrique
+
+Une mine d'or pour entrepreneurs à la recherche d'opportunités.
+
+## Ce que vous y trouverez :
+- 500 idées d'affaires variées
+- Opportunités par secteur
+- Analyse des tendances africaines
+- Idées à faible investissement
+- Business à fort potentiel
+- Conseils de démarrage
+
+Parfait pour trouver l'inspiration et lancer votre projet entrepreneurial en Afrique.`
   }
 ];
 
 const levels = ["Tous", "Primaire", "Collège", "Lycée", "Université"];
-const subjects = ["Toutes", "Informatique"];
+const subjects = ["Toutes", "Informatique", "Entrepreneuriat"];
 const difficulties = ["Tous", "Débutant", "Intermédiaire", "Avancé", "Expert"];
 
 const Courses = () => {
