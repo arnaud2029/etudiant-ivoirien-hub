@@ -10,235 +10,167 @@ import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Chatbot from "@/components/Chatbot";
 import ExerciseCard from "@/components/ExerciseCard";
-import exerciseGeneral from "@/assets/exercise-general.jpg";
+import exerciseAlgoAbc from "@/assets/exercise-algo-abc-cover.jpg";
+import exerciseIntroVariables from "@/assets/exercise-intro-variables-cover.jpg";
+import exerciseTests from "@/assets/exercise-tests-cover.jpg";
+import exerciseLogique from "@/assets/exercise-logique-cover.jpg";
+import exerciseTableaux from "@/assets/exercise-tableaux-cover.jpg";
+import exerciseTechniquesRusses from "@/assets/exercise-techniques-russes-cover.jpg";
+import exerciseTableauxMulti from "@/assets/exercise-tableaux-multi-cover.jpg";
+import exerciseTableauxPredefini from "@/assets/exercise-tableaux-predefini-cover.jpg";
+import exerciseFichiers from "@/assets/exercise-fichiers-cover.jpg";
 
 const exercises = [
   {
     id: "1",
-    title: "Géométrie - Quiz sur les triangles",
-    description: "Testez vos connaissances sur les propriétés des triangles et leurs classifications",
-    level: "Collège",
-    subject: "Mathématiques",
-    difficulty: "Intermédiaire", 
-    duration: "15 min",
-    points: 100,
-    type: "QCM",
-    thumbnail: exerciseGeneral,
+    title: "Exercices d'Algorithmique (ABC)",
+    description: "Collection complète d'exercices d'algorithmique de tous niveaux : faciles, sérieux, difficiles et pour les champions. Parfait pour progresser étape par étape.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Tous niveaux",
+    duration: "Variable",
+    points: 500,
+    type: "PDF",
+    thumbnail: exerciseAlgoAbc,
     hasVideo: false,
     hasPdf: true,
-    questions: 5,
-    questionsList: [
-      {
-        id: 1,
-        question: "Combien d'angles possède un triangle ?",
-        options: ["2", "3", "4", "5"],
-        correctAnswer: 1,
-        explanation: "Un triangle possède toujours 3 angles intérieurs."
-      },
-      {
-        id: 2,
-        question: "Quelle est la somme des angles d'un triangle ?",
-        options: ["90°", "180°", "270°", "360°"],
-        correctAnswer: 1,
-        explanation: "La somme des angles d'un triangle est toujours 180°."
-      },
-      {
-        id: 3,
-        question: "Dans un triangle rectangle, comment s'appelle le côté opposé à l'angle droit ?",
-        options: ["Côté adjacent", "Hypoténuse", "Cathète", "Médiane"],
-        correctAnswer: 1,
-        explanation: "L'hypoténuse est le côté le plus long d'un triangle rectangle, opposé à l'angle droit."
-      },
-      {
-        id: 4,
-        question: "Un triangle équilatéral a :",
-        options: ["3 côtés égaux", "2 côtés égaux", "Aucun côté égal", "4 côtés égaux"],
-        correctAnswer: 0,
-        explanation: "Un triangle équilatéral a ses 3 côtés de même longueur et ses 3 angles de 60°."
-      },
-      {
-        id: 5,
-        question: "Selon le théorème de Pythagore, dans un triangle rectangle de côtés 3 et 4, l'hypoténuse mesure :",
-        options: ["5", "6", "7", "8"],
-        correctAnswer: 0,
-        explanation: "D'après Pythagore : h² = 3² + 4² = 9 + 16 = 25, donc h = 5."
-      }
-    ],
-    completed: 0
+    pdfUrl: "/pdfs/exercices-algo-abc.pdf",
+    questions: 25
   },
   {
     id: "2",
-    title: "Additions et soustractions - CE1",
-    description: "Maîtriser les opérations de base avec des nombres jusqu'à 100",
-    level: "Primaire",
-    subject: "Mathématiques",
-    duration: "20 min",
-    questions: 10,
+    title: "Introduction à l'Algorithme et Variables",
+    description: "Exercices pratiques sur l'introduction à l'algorithmique et la manipulation des variables. Idéal pour débuter en programmation.",
+    level: "Université",
+    subject: "Informatique",
     difficulty: "Débutant",
-    completed: 85,
-    type: "Calcul",
-    points: 80,
-    questionsList: [
-      {
-        id: 1,
-        question: "Combien font 15 + 8 ?",
-        options: ["21", "23", "24", "25"],
-        correctAnswer: 1,
-        explanation: "15 + 8 = 23. On peut faire 15 + 5 = 20, puis 20 + 3 = 23."
-      },
-      {
-        id: 2,
-        question: "Combien font 30 - 12 ?",
-        options: ["18", "19", "17", "22"],
-        correctAnswer: 0,
-        explanation: "30 - 12 = 18. On peut faire 30 - 10 = 20, puis 20 - 2 = 18."
-      },
-      {
-        id: 3,
-        question: "J'ai 25 billes, j'en perds 7. Combien me reste-t-il ?",
-        options: ["17", "18", "19", "32"],
-        correctAnswer: 1,
-        explanation: "25 - 7 = 18 billes restantes."
-      }
-    ]
+    duration: "45-60 min",
+    points: 100,
+    type: "PDF",
+    thumbnail: exerciseIntroVariables,
+    hasVideo: false,
+    hasPdf: true,
+    pdfUrl: "/pdfs/exercices-intro-variables.pdf",
+    questions: 9
   },
   {
     id: "3",
-    title: "Lecture CP - Syllabes et mots simples",
-    description: "S'entraîner à lire des syllabes et former ses premiers mots",
-    level: "Primaire", 
-    subject: "Français",
-    duration: "25 min",
-    questions: 12,
+    title: "Exercices sur les Tests",
+    description: "Série d'exercices sur les structures conditionnelles (SI...ALORS...SINON). Maîtrisez les tests et conditions en programmation.",
+    level: "Université",
+    subject: "Informatique",
     difficulty: "Débutant",
-    completed: 0,
-    type: "Exercice",
-    points: 60,
-    questionsList: [
-      {
-        id: 1,
-        question: "Comment se lit cette syllabe : MA ?",
-        options: ["mi", "ma", "mo", "mu"],
-        correctAnswer: 1,
-        explanation: "MA se lit 'ma' comme dans 'maman'."
-      },
-      {
-        id: 2,
-        question: "Quel mot peut-on former avec PA + PA ?",
-        options: ["maman", "papa", "bébé", "dodo"],
-        correctAnswer: 1,
-        explanation: "PA + PA = PAPA"
-      }
-    ]
+    duration: "1-2 heures",
+    points: 150,
+    type: "PDF",
+    thumbnail: exerciseTests,
+    hasVideo: false,
+    hasPdf: true,
+    pdfUrl: "/pdfs/exercices-tests.pdf",
+    questions: 12
   },
   {
     id: "4",
-    title: "Aires et périmètres - 6ème",
-    description: "Calculs d'aires et de périmètres des figures géométriques simples",
-    level: "Collège",
-    subject: "Mathématiques", 
-    duration: "30 min",
-    questions: 8,
+    title: "Exercices sur la Logique",
+    description: "Approfondissez votre maîtrise des opérateurs logiques ET et OU. Exercices sur les conditions composées et transformations de Morgan.",
+    level: "Université",
+    subject: "Informatique",
     difficulty: "Intermédiaire",
-    completed: 45,
-    type: "Problème",
+    duration: "1-2 heures",
     points: 120,
-    questionsList: [
-      {
-        id: 1,
-        question: "Quelle est l'aire d'un rectangle de 8 cm de longueur et 5 cm de largeur ?",
-        options: ["26 cm²", "40 cm²", "13 cm²", "16 cm²"],
-        correctAnswer: 1,
-        explanation: "Aire du rectangle = longueur × largeur = 8 × 5 = 40 cm²"
-      },
-      {
-        id: 2,
-        question: "Quel est le périmètre d'un carré de côté 7 cm ?",
-        options: ["14 cm", "21 cm", "28 cm", "49 cm"],
-        correctAnswer: 2,
-        explanation: "Périmètre du carré = 4 × côté = 4 × 7 = 28 cm"
-      }
-    ]
+    type: "PDF",
+    thumbnail: exerciseLogique,
+    hasVideo: false,
+    hasPdf: true,
+    pdfUrl: "/pdfs/exercices-logique.pdf",
+    questions: 10
   },
   {
     id: "5",
-    title: "Empires africains - Histoire 4ème",
-    description: "Découvrir les grands empires d'Afrique de l'Ouest avant la colonisation",
-    level: "Collège",
-    subject: "Histoire",
-    duration: "25 min",
-    questions: 15,
-    difficulty: "Intermédiaire", 
-    completed: 100,
-    type: "QCM",
-    points: 100,
-    questionsList: [
-      {
-        id: 1,
-        question: "Quel empire est considéré comme le premier grand empire d'Afrique de l'Ouest ?",
-        options: ["Empire du Mali", "Empire Songhaï", "Empire du Ghana", "Empire du Kanem"],
-        correctAnswer: 2,
-        explanation: "L'Empire du Ghana (300-1200) est le premier grand empire organisé d'Afrique de l'Ouest."
-      },
-      {
-        id: 2,
-        question: "Qui était Mansa Moussa ?",
-        options: ["Un roi du Ghana", "Un empereur du Mali", "Un chef Songhaï", "Un explorateur"],
-        correctAnswer: 1,
-        explanation: "Mansa Moussa était l'empereur du Mali (1312-1337), célèbre pour sa richesse et son pèlerinage à La Mecque."
-      }
-    ]
+    title: "Exercices sur les Tableaux",
+    description: "Série d'exercices pratiques sur la manipulation des tableaux : déclaration, remplissage, parcours et algorithmes courants sur tableaux.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Intermédiaire",
+    duration: "2-3 heures",
+    points: 200,
+    type: "PDF",
+    thumbnail: exerciseTableaux,
+    hasVideo: false,
+    hasPdf: true,
+    pdfUrl: "/pdfs/exercices-tableaux.pdf",
+    questions: 14
   },
   {
     id: "6",
-    title: "Fonctions et dérivées - Terminale C",
-    description: "Étude des fonctions, calcul de dérivées et applications",
-    level: "Lycée",
-    subject: "Mathématiques",
-    duration: "45 min",
-    questions: 6,
+    title: "Exercices - Techniques Russes",
+    description: "Exercices avancés sur les techniques algorithmiques sophistiquées. Pour programmeurs expérimentés souhaitant perfectionner leurs compétences.",
+    level: "Université",
+    subject: "Informatique",
     difficulty: "Avancé",
-    completed: 20,
-    type: "Problème",
-    points: 200,
-    questionsList: [
-      {
-        id: 1,
-        question: "Quelle est la dérivée de f(x) = 3x² + 5x - 2 ?",
-        options: ["f'(x) = 6x + 5", "f'(x) = 3x + 5", "f'(x) = 6x + 5x", "f'(x) = 6x² + 5"],
-        correctAnswer: 0,
-        explanation: "La dérivée de 3x² est 6x, celle de 5x est 5, et celle de -2 est 0. Donc f'(x) = 6x + 5."
-      }
-    ]
+    duration: "3-4 heures",
+    points: 300,
+    type: "PDF",
+    thumbnail: exerciseTechniquesRusses,
+    hasVideo: false,
+    hasPdf: true,
+    pdfUrl: "/pdfs/exercices-techniques-russes.pdf",
+    questions: 15
   },
   {
     id: "7",
-    title: "Philosophie - La conscience et l'inconscient",
-    description: "Réflexion sur les concepts de conscience et d'inconscient",
-    level: "Lycée",
-    subject: "Philosophie",
-    duration: "60 min",
-    questions: 4,
+    title: "Exercices - Tableaux Multidimensionnels",
+    description: "Exercices sur les tableaux à plusieurs dimensions (matrices, cubes). Manipulation avancée des structures de données complexes.",
+    level: "Université",
+    subject: "Informatique",
     difficulty: "Avancé",
-    completed: 0,
-    type: "Dissertation",
+    duration: "2-3 heures",
     points: 250,
-    questionsList: [
-      {
-        id: 1,
-        question: "Selon Descartes, qu'est-ce qui caractérise la conscience ?",
-        options: ["L'intuition", "La pensée", "La sensation", "L'émotion"],
-        correctAnswer: 1,
-        explanation: "Pour Descartes, 'Je pense donc je suis'. La pensée est l'attribut essentiel de la conscience."
-      }
-    ]
+    type: "PDF",
+    thumbnail: exerciseTableauxMulti,
+    hasVideo: false,
+    hasPdf: true,
+    pdfUrl: "/pdfs/exercices-tableaux-multi.pdf",
+    questions: 12
   },
+  {
+    id: "8",
+    title: "Exercices - Tableaux Prédéfinis",
+    description: "Exercices sur l'utilisation des tableaux prédéfinis et structures de données built-in. Optimisez votre code avec les bonnes structures.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Intermédiaire",
+    duration: "2 heures",
+    points: 180,
+    type: "PDF",
+    thumbnail: exerciseTableauxPredefini,
+    hasVideo: false,
+    hasPdf: true,
+    pdfUrl: "/pdfs/exercices-tableaux-predefini.pdf",
+    questions: 10
+  },
+  {
+    id: "9",
+    title: "Exercices sur les Fichiers",
+    description: "Série d'exercices pratiques sur la gestion des fichiers : ouverture, lecture, écriture, et traitement de données persistantes.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Intermédiaire",
+    duration: "2-3 heures",
+    points: 200,
+    type: "PDF",
+    thumbnail: exerciseFichiers,
+    hasVideo: false,
+    hasPdf: true,
+    pdfUrl: "/pdfs/exercices-fichiers.pdf",
+    questions: 11
+  }
 ];
 
-const levels = ["Tous", "Primaire", "Collège", "Lycée", "Université"];
-const subjects = ["Toutes", "Mathématiques", "Français", "Sciences", "Histoire", "Physique-Chimie", "SVT", "Philosophie", "Géographie", "Anglais", "Allemand", "Espagnol", "Éducation civique", "Arts plastiques", "Musique", "EPS", "Informatique"];
-const difficulties = ["Tous", "Débutant", "Intermédiaire", "Avancé", "Expert"];
-const types = ["Tous", "Quiz", "Exercice", "Problème", "QCM", "Dissertation", "Analyse de texte", "Calcul", "Rédaction"];
+const levels = ["Tous", "Université"];
+const subjects = ["Toutes", "Informatique"];
+const difficulties = ["Tous", "Tous niveaux", "Débutant", "Intermédiaire", "Avancé"];
+const types = ["Tous", "PDF"];
 
 const Exercises = () => {
   const [selectedLevel, setSelectedLevel] = useState("Tous");
@@ -307,16 +239,16 @@ const Exercises = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">{exercises.length}+</div>
-                <div className="text-sm text-muted-foreground">Exercices disponibles</div>
+                <div className="text-2xl font-bold text-primary">{exercises.length}</div>
+                <div className="text-sm text-muted-foreground">Séries d'exercices</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">5</div>
-                <div className="text-sm text-muted-foreground">Types d'exercices</div>
+                <div className="text-2xl font-bold text-primary">100+</div>
+                <div className="text-sm text-muted-foreground">Exercices au total</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">∞</div>
-                <div className="text-sm text-muted-foreground">Tentatives possibles</div>
+                <div className="text-2xl font-bold text-primary">PDF</div>
+                <div className="text-sm text-muted-foreground">Format téléchargeable</div>
               </div>
             </div>
           </div>
