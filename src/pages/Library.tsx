@@ -1,520 +1,541 @@
 import { useState } from "react";
-import { Search, BookOpen, Download, Eye, Filter, Grid, List, Star, Clock } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Search, BookOpen, Trophy } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Chatbot from "@/components/Chatbot";
+import CourseCard from "@/components/CourseCard";
+import ExerciseCard from "@/components/ExerciseCard";
 
-const documents = [
-  // Livres éducatifs
+// Import course covers
+import coursePythonCover from "@/assets/course-python-cover.jpg";
+import courseProgrammationCover from "@/assets/course-programmation-cover.jpg";
+import courseVariablesCover from "@/assets/course-variables-cover.jpg";
+import courseAlgorithmeCover from "@/assets/course-algorithme-cover.jpg";
+import courseBoulangerieCover from "@/assets/course-boulangerie-cover.jpg";
+import courseLavageAutoCover from "@/assets/course-lavage-auto-cover.jpg";
+import courseLocationVoitureCover from "@/assets/course-location-voiture-cover.jpg";
+import courseMobileMoneyCover from "@/assets/course-mobile-money-cover.jpg";
+import coursePoissonerieCover from "@/assets/course-poissonnerie-cover.jpg";
+import courseQuincaillerieCover from "@/assets/course-quincaillerie-cover.jpg";
+import course500IdeesCover from "@/assets/course-500-idees-cover.jpg";
+import courseLectureEcritureCover from "@/assets/course-lecture-ecriture-cover.jpg";
+import courseTestsCover from "@/assets/course-tests-cover.jpg";
+import courseLogiqueCover from "@/assets/course-logique-cover.jpg";
+import courseBouclesCover from "@/assets/course-boucles-cover.jpg";
+import courseTechniquesRussesCover from "@/assets/course-techniques-russes-cover.jpg";
+import courseTableauxMultiCover from "@/assets/course-tableaux-multi-cover.jpg";
+import courseFichiersCover from "@/assets/course-fichiers-cover.jpg";
+import courseProceduresCover from "@/assets/course-procedures-cover.jpg";
+
+// Import exercise covers
+import exerciseAlgoAbc from "@/assets/exercise-algo-abc-cover.jpg";
+import exerciseIntroVariables from "@/assets/exercise-intro-variables-cover.jpg";
+import exerciseTests from "@/assets/exercise-tests-cover.jpg";
+import exerciseLogique from "@/assets/exercise-logique-cover.jpg";
+import exerciseTableaux from "@/assets/exercise-tableaux-cover.jpg";
+import exerciseTechniquesRusses from "@/assets/exercise-techniques-russes-cover.jpg";
+import exerciseTableauxMulti from "@/assets/exercise-tableaux-multi-cover.jpg";
+import exerciseTableauxPredefini from "@/assets/exercise-tableaux-predefini-cover.jpg";
+import exerciseFichiers from "@/assets/exercise-fichiers-cover.jpg";
+
+const courses = [
   {
-    id: 1,
-    title: "Manuel de Mathématiques CM2 - Programme officiel",
-    description: "Guide complet pour la classe de CM2 avec exercices corrigés, conforme au programme ivoirien",
-    type: "Livre",
-    level: "Primaire",
-    subject: "Mathématiques",
-    pages: 248,
-    downloads: 3420,
-    rating: 4.8,
-    size: "15.2 MB",
-    format: "PDF",
-    author: "Ministère de l'Éducation Nationale",
-    published: "2024"
-  },
-  {
-    id: 2,
-    title: "Atlas Géographique de la Côte d'Ivoire",
-    description: "Cartes détaillées, données démographiques et économiques actualisées",
-    type: "Livre",
-    level: "Collège",
-    subject: "Géographie",
-    pages: 156,
-    downloads: 2890,
-    rating: 4.9,
-    size: "45.8 MB",
-    format: "PDF",
-    author: "Institut National de la Statistique",
-    published: "2024"
-  },
-  {
-    id: 3,
-    title: "Chimie Organique - Terminale C et D",
-    description: "Cours complet avec expériences et exercices d'application",
-    type: "Livre",
-    level: "Lycée",
-    subject: "Chimie",
-    pages: 324,
-    downloads: 1856,
-    rating: 4.7,
-    size: "28.5 MB",
-    format: "PDF",
-    author: "Prof. Dr. Kouame N'Guessan",
-    published: "2024"
-  },
-  {
-    id: 4,
-    title: "Littérature Africaine - Anthologie",
-    description: "Sélection d'œuvres d'auteurs africains francophones du XXe siècle",
-    type: "Livre", 
-    level: "Lycée",
-    subject: "Français",
-    pages: 198,
-    downloads: 2145,
-    rating: 4.6,
-    size: "12.3 MB",
-    format: "PDF",
-    author: "Prof. Aminata Traoré",
-    published: "2023"
-  },
-  {
-    id: 5,
-    title: "Introduction à l'Informatique - Algorithmes",
-    description: "Bases de la programmation et de l'algorithmique pour débutants",
-    type: "Livre",
+    id: "1",
+    title: "Cours de Python - Introduction à la programmation Python pour la biologie",
+    description: "Cours complet de Python par l'Université Paris Cité. Couvre les variables, listes, boucles, fichiers, modules et bien plus. Idéal pour débutants en programmation scientifique.",
     level: "Université",
+    subject: "Informatique",
+    difficulty: "Débutant à Intermédiaire",
+    duration: "Variable (cours complet)",
+    pages: 50,
+    downloads: 0,
+    thumbnail: coursePythonCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/cours-python.pdf"
+  },
+  {
+    id: "2", 
+    title: "Les bases de la programmation",
+    description: "Introduction complète à la programmation informatique. Découvrez ce qu'est un programme, les langages de programmation, les IDE et les bonnes pratiques pour bien débuter.",
+    level: "Débutant",
     subject: "Informatique", 
-    pages: 287,
-    downloads: 4156,
-    rating: 4.8,
-    size: "18.9 MB",
-    format: "PDF",
-    author: "Dr. Jean-Baptiste Yao",
-    published: "2024"
+    difficulty: "Débutant",
+    duration: "Variable (cours complet)",
+    pages: 20,
+    downloads: 0,
+    thumbnail: courseProgrammationCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/les-bases-de-la-programmation.pdf"
   },
   {
-    id: 2,
-    title: "Grammaire Française - Collège",
-    description: "Toutes les règles de grammaire française pour le collège",
-    type: "Livre",
-    level: "Collège",
-    subject: "Français",
-    pages: 186,
-    downloads: 2890,
-    rating: 4.6,
-    size: "12.8 MB",
-    format: "PDF",
-    author: "Prof. Marie Kouadio",
-    published: "2023"
-  },
-  {
-    id: 3,
-    title: "Histoire de la Côte d'Ivoire",
-    description: "Des origines à nos jours - Manuel de référence",
-    type: "Livre",
-    level: "Lycée",
-    subject: "Histoire",
-    pages: 324,
-    downloads: 4156,
-    rating: 4.9,
-    size: "28.5 MB",
-    format: "PDF",
-    author: "Dr. Kouassi N'Guessan",
-    published: "2024"
-  },
-  // Articles de recherche
-  {
-    id: 6,
-    title: "L'économie numérique en Afrique de l'Ouest",
-    description: "Analyse des opportunités et défis de la transformation digitale",
-    type: "Article",
+    id: "3",
+    title: "Les Variables - Algorithmique",
+    description: "Cours détaillé sur les variables en programmation : leur utilité, déclaration, types numériques et manipulation. Concepts fondamentaux pour tout programmeur.",
     level: "Université",
-    subject: "Économie",
+    subject: "Informatique",
+    difficulty: "Débutant",
+    duration: "2-3 heures",
+    pages: 25,
+    downloads: 0,
+    thumbnail: courseVariablesCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/les-variables.pdf"
+  },
+  {
+    id: "4",
+    title: "Introduction à l'Algorithmique",
+    description: "Découvrez les bases de l'algorithmique : qu'est-ce qu'un algorithme, comment penser algorithmiquement, et les fondamentaux pour résoudre des problèmes informatiques.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Débutant",
+    duration: "3-4 heures",
+    pages: 30,
+    downloads: 0,
+    thumbnail: courseAlgorithmeCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/introduction-algorithme.pdf"
+  },
+  {
+    id: "5",
+    title: "Plan d'Affaires - Boulangerie/Pâtisserie",
+    description: "Projet complet de mise en place d'une boulangerie industrielle au Sénégal. Analyse de marché, études financières, stratégie marketing et plan opérationnel détaillé.",
+    level: "Université",
+    subject: "Entrepreneuriat",
+    difficulty: "Intermédiaire",
+    duration: "5-6 heures",
     pages: 45,
-    downloads: 1234,
-    rating: 4.5,
-    size: "3.2 MB",
-    format: "PDF",
-    author: "Prof. Adama Diallo - ENSEA",
-    published: "2024"
+    downloads: 0,
+    thumbnail: courseBoulangerieCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/plan-affaire-boulangerie.pdf"
   },
   {
-    id: 7,
-    title: "Changements climatiques et agriculture en Côte d'Ivoire", 
-    description: "Impact du réchauffement sur les cultures tropicales et stratégies d'adaptation",
-    type: "Recherche",
+    id: "6",
+    title: "Plan d'Affaires - Station de Lavage Auto",
+    description: "Business plan complet pour l'ouverture d'une station de lavage automobile. Étude de faisabilité, investissements nécessaires et projections financières.",
     level: "Université",
-    subject: "Sciences",
-    pages: 67,
-    downloads: 876,
-    rating: 4.7,
-    size: "8.1 MB",
-    format: "PDF",
-    author: "Dr. Fatima Traoré - CNRA",
-    published: "2024"
+    subject: "Entrepreneuriat",
+    difficulty: "Intermédiaire",
+    duration: "4-5 heures",
+    pages: 40,
+    downloads: 0,
+    thumbnail: courseLavageAutoCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/plan-affaire-lavage-auto.pdf"
   },
   {
-    id: 8,
-    title: "Patrimoine culturel ivoirien - Inventaire national",
-    description: "Répertoire complet des sites, monuments et traditions culturels",
-    type: "Guide",
-    level: "Tous",
-    subject: "Arts",
-    pages: 234,
-    downloads: 1987,
-    rating: 4.8,
-    size: "25.6 MB", 
-    format: "PDF",
-    author: "Ministère de la Culture",
-    published: "2023"
-  },
-
-  // Manuels et cours 
-  {
-    id: 9,
-    title: "Cours d'Algorithmique et Structures de Données",
-    description: "Manuel complet pour les étudiants en informatique - Niveau L2/L3",
-    type: "Cours",
+    id: "7",
+    title: "Plan d'Affaires - Location de Voitures",
+    description: "Projet détaillé de création d'une entreprise de location de véhicules. Stratégie commerciale, gestion de flotte et analyse de rentabilité.",
     level: "Université",
-    subject: "Informatique", 
-    pages: 189,
-    downloads: 3456,
-    rating: 4.9,
-    size: "12.4 MB",
-    format: "PDF",
-    author: "Dr. Kouassi Yao - INPHB",
-    published: "2024"
+    subject: "Entrepreneuriat",
+    difficulty: "Intermédiaire",
+    duration: "5-6 heures",
+    pages: 42,
+    downloads: 0,
+    thumbnail: courseLocationVoitureCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/plan-affaire-location-voiture.pdf"
   },
   {
-    id: 10,
-    title: "Grammaire Française Avancée - Lycée",
-    description: "Maîtrise complète de la langue française : syntaxe, orthographe, style",
-    type: "Manuel",
-    level: "Lycée",
-    subject: "Français",
-    pages: 298,
-    downloads: 2167,
-    rating: 4.6,
-    size: "18.7 MB",
-    format: "PDF", 
-    author: "Prof. Marie Kouadio",
-    published: "2024"
-  },
-  {
-    id: 11,
-    title: "Physique Quantique - Introduction",
-    description: "Bases de la mécanique quantique pour étudiants en physique",
-    type: "Cours",
-    level: "Université", 
-    subject: "Sciences",
-    pages: 156,
-    downloads: 892,
-    rating: 4.4,
-    size: "11.2 MB",
-    format: "PDF",
-    author: "Prof. Diabaté Seydou - Université Cocody",
-    published: "2023"
-  },
-
-  // Mémoires et thèses
-  {
-    id: 12,
-    title: "Digitalisation du système éducatif ivoirien",
-    description: "Mémoire de Master : Enjeux et perspectives des TIC dans l'éducation",
-    type: "Mémoire",
+    id: "8",
+    title: "Plan d'Affaires - Service Mobile Money",
+    description: "Plan d'affaires pour le lancement d'un service de transfert d'argent mobile. Analyse du secteur fintech, réglementation et modèle économique.",
     level: "Université",
-    subject: "Éducation",
-    pages: 98,
-    downloads: 654,
-    rating: 4.3,
-    size: "8.7 MB",
-    format: "PDF",
-    author: "Aminata Sanogo - ENS Abidjan",
-    published: "2023"
+    subject: "Entrepreneuriat",
+    difficulty: "Avancé",
+    duration: "6-7 heures",
+    pages: 50,
+    downloads: 0,
+    thumbnail: courseMobileMoneyCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/plan-affaire-mobile-money.pdf"
   },
   {
-    id: 13,
-    title: "Intelligence Artificielle appliquée à la médecine",
-    description: "Thèse de doctorat : Applications de l'IA dans le diagnostic médical",
-    type: "Thèse",
+    id: "9",
+    title: "Plan d'Affaires - Poissonnerie (Partie 1)",
+    description: "Première partie du plan d'affaires pour l'ouverture d'une poissonnerie. Étude du marché de la pêche, approvisionnement et logistique.",
     level: "Université",
-    subject: "Médecine",
-    pages: 245,
-    downloads: 432,
-    rating: 4.7,
-    size: "18.9 MB",
-    format: "PDF",
-    author: "Dr. Jean-Baptiste Yao - UFR Sciences Médicales",
-    published: "2023"
+    subject: "Entrepreneuriat",
+    difficulty: "Intermédiaire",
+    duration: "4-5 heures",
+    pages: 38,
+    downloads: 0,
+    thumbnail: coursePoissonerieCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/plan-affaire-poissonnerie-1.pdf"
   },
   {
-    id: 14,
-    title: "Développement durable en milieu urbain africain",
-    description: "Thèse sur les stratégies d'urbanisation durable à Abidjan",
-    type: "Thèse",
+    id: "10",
+    title: "Plan d'Affaires - Poissonnerie (Partie 2)",
+    description: "Suite du plan d'affaires pour poissonnerie. Focus sur les aspects financiers, marketing et développement commercial.",
     level: "Université",
-    subject: "Géographie",
-    pages: 187,
-    downloads: 567,
-    rating: 4.5,
-    size: "15.3 MB",
-    format: "PDF",
-    author: "Dr. Kone Mariam - IGT",
-    published: "2024"
-  },
-
-  // Rapports officiels
-  {
-    id: 15,
-    title: "État de l'éducation en Côte d'Ivoire 2024",
-    description: "Rapport annuel complet : statistiques, défis et perspectives",
-    type: "Rapport",
-    level: "Tous",
-    subject: "Éducation",
-    pages: 156,
-    downloads: 2345,
-    rating: 4.2,
-    size: "11.4 MB",
-    format: "PDF",
-    author: "MENA-CI",
-    published: "2024"
+    subject: "Entrepreneuriat",
+    difficulty: "Intermédiaire",
+    duration: "4-5 heures",
+    pages: 35,
+    downloads: 0,
+    thumbnail: coursePoissonerieCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/plan-affaire-poissonnerie-2.pdf"
   },
   {
-    id: 16,
-    title: "Rapport sur la biodiversité ivoirienne",
-    description: "Inventaire de la faune et flore, état de conservation",
-    type: "Rapport",
-    level: "Lycée",
-    subject: "Sciences",
-    pages: 78,
-    downloads: 1123,
-    rating: 4.6,
-    size: "20.8 MB",
-    format: "PDF",
-    author: "OIPR - Office Ivoirien des Parcs",
-    published: "2024"
-  },
-
-  // Guides pratiques
-  {
-    id: 17,
-    title: "Guide du jeune entrepreneur ivoirien",
-    description: "Étapes pour créer et développer son entreprise en Côte d'Ivoire",
-    type: "Guide",
-    level: "Professionnel",
-    subject: "Économie",
-    pages: 89,
-    downloads: 3214,
-    rating: 4.8,
-    size: "6.4 MB",
-    format: "PDF",
-    author: "CEPICI - Centre de Promotion des Investissements",
-    published: "2024"
-  },
-  {
-    id: 18,
-    title: "Méthodologie de la recherche scientifique",
-    description: "Guide pratique pour étudiants et chercheurs débutants",
-    type: "Guide",
+    id: "11",
+    title: "Plan d'Affaires - Quincaillerie",
+    description: "Business plan complet pour l'ouverture d'une quincaillerie. Gestion des stocks, fournisseurs, et stratégie commerciale dans le secteur du BTP.",
     level: "Université",
-    subject: "Sociologie",
-    pages: 134,
-    downloads: 1876,
-    rating: 4.7,
-    size: "9.1 MB",
-    format: "PDF",
-    author: "Prof. Gnabeli Yao - Université Alassane Ouattara",
-    published: "2023"
-  },
-
-  // Ressources spécialisées
-  {
-    id: 19,
-    title: "Dictionnaire des langues nationales ivoiriennes",
-    description: "Lexique multilingue : Baoulé, Dioula, Bété, Agni, Français",
-    type: "Manuel",
-    level: "Tous",
-    subject: "Langues",
-    pages: 456,
-    downloads: 2987,
-    rating: 4.9,
-    size: "32.5 MB",
-    format: "PDF",
-    author: "Institut de Linguistique Appliquée",
-    published: "2024"
+    subject: "Entrepreneuriat",
+    difficulty: "Intermédiaire",
+    duration: "5-6 heures",
+    pages: 43,
+    downloads: 0,
+    thumbnail: courseQuincaillerieCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/plan-affaire-quincaillerie.pdf"
   },
   {
-    id: 20,
-    title: "Architecture traditionnelle ivoirienne",
-    description: "Étude des techniques constructives ancestrales et leur modernisation",
-    type: "Livre",
+    id: "12",
+    title: "500 Idées de Business en Afrique",
+    description: "Compilation de 500 idées d'entreprises adaptées au contexte africain. Secteurs variés, opportunités de marché et conseils pour entrepreneurs innovants.",
     level: "Université",
-    subject: "Arts",
-    pages: 167,
-    downloads: 743,
-    rating: 4.4,
-    size: "28.9 MB",
-    format: "PDF",
-    author: "Prof. Koné Brahima - EAA",
-    published: "2023"
+    subject: "Entrepreneuriat",
+    difficulty: "Débutant",
+    duration: "Variable",
+    pages: 80,
+    downloads: 0,
+    thumbnail: course500IdeesCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: true,
+    pdfUrl: "/pdfs/500-idees-business-afrique.pdf"
+  },
+  {
+    id: "13",
+    title: "Lecture et Écriture - Algorithmique",
+    description: "Découvrez les instructions de lecture et écriture en programmation pour permettre l'interaction avec l'utilisateur. Concepts essentiels pour tout programme interactif.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Débutant",
+    duration: "1-2 heures",
+    pages: 15,
+    downloads: 0,
+    thumbnail: courseLectureEcritureCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/lecture-et-ecriture.pdf"
+  },
+  {
+    id: "14",
+    title: "Les Tests - Structures Conditionnelles",
+    description: "Maîtrisez les structures de test (SI...ALORS...SINON) en algorithmique. Apprenez à créer des conditions et à gérer différents scénarios dans vos programmes.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Débutant",
+    duration: "2-3 heures",
+    pages: 28,
+    downloads: 0,
+    thumbnail: courseTestsCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/les-tests.pdf"
+  },
+  {
+    id: "15",
+    title: "Encore de la Logique - Opérateurs ET/OU",
+    description: "Approfondissez votre compréhension des opérateurs logiques ET et OU. Transformations de Morgan, conditions composées et optimisation des tests.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Intermédiaire",
+    duration: "2-3 heures",
+    pages: 20,
+    downloads: 0,
+    thumbnail: courseLogiqueCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/encore-de-la-logique.pdf"
+  },
+  {
+    id: "16",
+    title: "Les Boucles - Structures Itératives",
+    description: "Apprenez à utiliser les boucles TANT QUE, POUR et autres structures répétitives. La clé pour automatiser vos traitements et créer des programmes puissants.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Intermédiaire",
+    duration: "3-4 heures",
+    pages: 35,
+    downloads: 0,
+    thumbnail: courseBouclesCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/les-boucles.pdf"
+  },
+  {
+    id: "17",
+    title: "Les Techniques Russes - Algorithmes Avancés",
+    description: "Découvrez des techniques algorithmiques avancées et des méthodes d'optimisation. Pour ceux qui veulent aller plus loin dans la maîtrise de l'algorithmique.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Avancé",
+    duration: "4-5 heures",
+    pages: 32,
+    downloads: 0,
+    thumbnail: courseTechniquesRussesCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: true,
+    pdfUrl: "/pdfs/techniques-russes.pdf"
+  },
+  {
+    id: "18",
+    title: "Tableaux Multidimensionnels - Structures de Données",
+    description: "Maîtrisez les tableaux à plusieurs dimensions (matrices, cubes de données). Manipulation avancée des structures de données en programmation.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Avancé",
+    duration: "3-4 heures",
+    pages: 30,
+    downloads: 0,
+    thumbnail: courseTableauxMultiCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/tableaux-multidimensionnels.pdf"
+  },
+  {
+    id: "19",
+    title: "Les Fichiers - Gestion des Données Persistantes",
+    description: "Apprenez à lire et écrire dans des fichiers pour sauvegarder et charger des données. Gestion de fichiers texte et binaires en programmation.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Intermédiaire",
+    duration: "3-4 heures",
+    pages: 28,
+    downloads: 0,
+    thumbnail: courseFichiersCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/les-fichiers.pdf"
+  },
+  {
+    id: "20",
+    title: "Procédures et Fonctions - Programmation Modulaire",
+    description: "Découvrez la programmation modulaire avec les procédures et fonctions. Réutilisabilité, paramètres, et structuration efficace de votre code.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Intermédiaire",
+    duration: "4-5 heures",
+    pages: 40,
+    downloads: 0,
+    thumbnail: courseProceduresCover,
+    hasVideo: false,
+    hasPdf: true,
+    isPremium: false,
+    pdfUrl: "/pdfs/procedures-et-fonctions.pdf"
   }
 ];
 
-const types = ["Tous", "Livre", "Article", "Mémoire", "Thèse", "Rapport", "Manuel", "Guide", "Cours", "Recherche"];
-const levels = ["Tous", "Primaire", "Collège", "Lycée", "Université", "Professionnel"];
-const subjects = ["Toutes", "Mathématiques", "Français", "Sciences", "Histoire", "Économie", "Éducation", "Informatique", "Géographie", "Droit", "Médecine", "Ingénierie", "Arts", "Langues", "Philosophie", "Sociologie"];
-const formats = ["Tous", "PDF", "EPUB", "DOCX", "Video", "Audio"];
+const exercises = [
+  {
+    id: "1",
+    title: "Exercices d'Algorithmique (ABC)",
+    description: "Collection complète d'exercices d'algorithmique de tous niveaux : faciles, sérieux, difficiles et pour les champions. Parfait pour progresser étape par étape.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Tous niveaux",
+    duration: "Variable",
+    points: 500,
+    type: "PDF",
+    thumbnail: exerciseAlgoAbc,
+    hasVideo: false,
+    hasPdf: true,
+    pdfUrl: "/pdfs/exercices-algo-abc.pdf",
+    questions: 25
+  },
+  {
+    id: "2",
+    title: "Introduction à l'Algorithme et Variables",
+    description: "Exercices pratiques sur l'introduction à l'algorithmique et la manipulation des variables. Idéal pour débuter en programmation.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Débutant",
+    duration: "45-60 min",
+    points: 100,
+    type: "PDF",
+    thumbnail: exerciseIntroVariables,
+    hasVideo: false,
+    hasPdf: true,
+    pdfUrl: "/pdfs/exercices-intro-variables.pdf",
+    questions: 9
+  },
+  {
+    id: "3",
+    title: "Exercices sur les Tests",
+    description: "Série d'exercices sur les structures conditionnelles (SI...ALORS...SINON). Maîtrisez les tests et conditions en programmation.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Débutant",
+    duration: "1-2 heures",
+    points: 150,
+    type: "PDF",
+    thumbnail: exerciseTests,
+    hasVideo: false,
+    hasPdf: true,
+    pdfUrl: "/pdfs/exercices-tests.pdf",
+    questions: 12
+  },
+  {
+    id: "4",
+    title: "Exercices sur la Logique",
+    description: "Approfondissez votre maîtrise des opérateurs logiques ET et OU. Exercices sur les conditions composées et transformations de Morgan.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Intermédiaire",
+    duration: "1-2 heures",
+    points: 120,
+    type: "PDF",
+    thumbnail: exerciseLogique,
+    hasVideo: false,
+    hasPdf: true,
+    pdfUrl: "/pdfs/exercices-logique.pdf",
+    questions: 10
+  },
+  {
+    id: "5",
+    title: "Exercices sur les Tableaux",
+    description: "Série d'exercices pratiques sur la manipulation des tableaux : déclaration, remplissage, parcours et algorithmes courants sur tableaux.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Intermédiaire",
+    duration: "2-3 heures",
+    points: 200,
+    type: "PDF",
+    thumbnail: exerciseTableaux,
+    hasVideo: false,
+    hasPdf: true,
+    pdfUrl: "/pdfs/exercices-tableaux.pdf",
+    questions: 14
+  },
+  {
+    id: "6",
+    title: "Exercices - Techniques Russes",
+    description: "Exercices avancés sur les techniques algorithmiques sophistiquées. Pour programmeurs expérimentés souhaitant perfectionner leurs compétences.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Avancé",
+    duration: "3-4 heures",
+    points: 300,
+    type: "PDF",
+    thumbnail: exerciseTechniquesRusses,
+    hasVideo: false,
+    hasPdf: true,
+    pdfUrl: "/pdfs/exercices-techniques-russes.pdf",
+    questions: 15
+  },
+  {
+    id: "7",
+    title: "Exercices - Tableaux Multidimensionnels",
+    description: "Exercices sur les tableaux à plusieurs dimensions (matrices, cubes). Manipulation avancée des structures de données complexes.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Avancé",
+    duration: "2-3 heures",
+    points: 250,
+    type: "PDF",
+    thumbnail: exerciseTableauxMulti,
+    hasVideo: false,
+    hasPdf: true,
+    pdfUrl: "/pdfs/exercices-tableaux-multi.pdf",
+    questions: 12
+  },
+  {
+    id: "8",
+    title: "Exercices - Tableaux Prédéfinis",
+    description: "Exercices sur l'utilisation des tableaux prédéfinis et structures de données built-in. Optimisez votre code avec les bonnes structures.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Intermédiaire",
+    duration: "2 heures",
+    points: 180,
+    type: "PDF",
+    thumbnail: exerciseTableauxPredefini,
+    hasVideo: false,
+    hasPdf: true,
+    pdfUrl: "/pdfs/exercices-tableaux-predefini.pdf",
+    questions: 10
+  },
+  {
+    id: "9",
+    title: "Exercices sur les Fichiers",
+    description: "Série d'exercices pratiques sur la gestion des fichiers : ouverture, lecture, écriture, et traitement de données persistantes.",
+    level: "Université",
+    subject: "Informatique",
+    difficulty: "Intermédiaire",
+    duration: "2-3 heures",
+    points: 200,
+    type: "PDF",
+    thumbnail: exerciseFichiers,
+    hasVideo: false,
+    hasPdf: true,
+    pdfUrl: "/pdfs/exercices-fichiers.pdf",
+    questions: 11
+  }
+];
+
+const levels = ["Tous", "Primaire", "Collège", "Lycée", "Université"];
+const subjects = ["Toutes", "Informatique", "Entrepreneuriat"];
 
 const Library = () => {
-  const [selectedType, setSelectedType] = useState("Tous");
   const [selectedLevel, setSelectedLevel] = useState("Tous");
   const [selectedSubject, setSelectedSubject] = useState("Toutes");
-  const [selectedFormat, setSelectedFormat] = useState("Tous");
   const [searchTerm, setSearchTerm] = useState("");
-  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
-  const [sortBy, setSortBy] = useState("downloads");
 
-  const filteredDocuments = documents
-    .filter(doc => {
-      const matchesType = selectedType === "Tous" || doc.type === selectedType;
-      const matchesLevel = selectedLevel === "Tous" || doc.level === selectedLevel;
-      const matchesSubject = selectedSubject === "Toutes" || doc.subject === selectedSubject;
-      const matchesFormat = selectedFormat === "Tous" || doc.format === selectedFormat;
-      const matchesSearch = doc.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           doc.description.toLowerCase().includes(searchTerm.toLowerCase());
-      
-      return matchesType && matchesLevel && matchesSubject && matchesFormat && matchesSearch;
-    })
-    .sort((a, b) => {
-      switch (sortBy) {
-        case "rating": return b.rating - a.rating;
-        case "pages": return b.pages - a.pages;
-        case "title": return a.title.localeCompare(b.title);
-        default: return b.downloads - a.downloads;
-      }
-    });
+  const filteredCourses = courses.filter(course => {
+    const matchesLevel = selectedLevel === "Tous" || course.level === selectedLevel;
+    const matchesSubject = selectedSubject === "Toutes" || course.subject === selectedSubject;
+    const matchesSearch = course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         course.description.toLowerCase().includes(searchTerm.toLowerCase());
+    
+    return matchesLevel && matchesSubject && matchesSearch;
+  });
 
-  const getTypeColor = (type: string) => {
-    switch (type) {
-      case "Livre": return "bg-blue-100 text-blue-800 border-blue-200";
-      case "Article": return "bg-green-100 text-green-800 border-green-200";
-      case "Mémoire": return "bg-purple-100 text-purple-800 border-purple-200";
-      case "Thèse": return "bg-red-100 text-red-800 border-red-200";
-      case "Rapport": return "bg-orange-100 text-orange-800 border-orange-200";
-      default: return "bg-gray-100 text-gray-800 border-gray-200";
-    }
-  };
-
-  const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, i) => (
-      <Star 
-        key={i} 
-        className={`h-3 w-3 ${i < Math.floor(rating) ? 'text-yellow-400 fill-current' : 'text-gray-300'}`} 
-      />
-    ));
-  };
-
-  const DocumentCard = ({ doc }: { doc: typeof documents[0] }) => (
-    <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-      <CardHeader className="pb-4">
-        <div className="flex items-start justify-between mb-2">
-          <Badge className={getTypeColor(doc.type)}>
-            {doc.type}
-          </Badge>
-          <div className="flex items-center gap-1">
-            {renderStars(doc.rating)}
-            <span className="text-xs text-muted-foreground ml-1">({doc.rating})</span>
-          </div>
-        </div>
-        <CardTitle className="text-lg line-clamp-2 group-hover:text-primary transition-colors">
-          {doc.title}
-        </CardTitle>
-        <CardDescription className="line-clamp-2">
-          {doc.description}
-        </CardDescription>
-      </CardHeader>
-      
-      <CardContent>
-        <div className="space-y-4">
-          {/* Document Info */}
-          <div className="grid grid-cols-2 gap-2 text-sm text-muted-foreground">
-            <div className="flex items-center gap-1">
-              <BookOpen className="h-3 w-3" />
-              {doc.pages} pages
-            </div>
-            <div className="flex items-center gap-1">
-              <Download className="h-3 w-3" />
-              {doc.downloads}
-            </div>
-            <div>{doc.format}</div>
-            <div>{doc.size}</div>
-          </div>
-          
-          {/* Author and Year */}
-          <div className="text-sm">
-            <p className="text-muted-foreground">Par {doc.author}</p>
-            <p className="text-muted-foreground">{doc.published}</p>
-          </div>
-          
-          {/* Badges */}
-          <div className="flex gap-2 flex-wrap">
-            <Badge variant="outline" className="text-xs">
-              {doc.level}
-            </Badge>
-            <Badge variant="outline" className="text-xs">
-              {doc.subject}
-            </Badge>
-          </div>
-          
-          {/* Action Buttons */}
-          <div className="flex gap-2 pt-2">
-            <Button variant="default" size="sm" className="flex-1">
-              <Eye className="h-4 w-4 mr-2" />
-              Lire
-            </Button>
-            <Button variant="outline" size="sm" className="flex-1">
-              <Download className="h-4 w-4 mr-2" />
-              Télécharger
-            </Button>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
-  );
-
-  const DocumentListItem = ({ doc }: { doc: typeof documents[0] }) => (
-    <Card className="group hover:shadow-md transition-all duration-300">
-      <CardContent className="p-4">
-        <div className="flex items-center justify-between">
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 mb-2">
-              <Badge className={getTypeColor(doc.type)}>
-                {doc.type}
-              </Badge>
-              <div className="flex items-center gap-1">
-                {renderStars(doc.rating)}
-              </div>
-            </div>
-            <h3 className="font-medium text-foreground truncate mb-1 group-hover:text-primary">
-              {doc.title}
-            </h3>
-            <p className="text-sm text-muted-foreground line-clamp-1 mb-2">
-              {doc.description}
-            </p>
-            <div className="flex items-center gap-4 text-xs text-muted-foreground">
-              <span>{doc.author}</span>
-              <span>{doc.pages} pages</span>
-              <span>{doc.downloads} téléchargements</span>
-              <span>{doc.size}</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-2 ml-4">
-            <Button variant="ghost" size="sm">
-              <Eye className="h-4 w-4" />
-            </Button>
-            <Button variant="ghost" size="sm">
-              <Download className="h-4 w-4" />
-            </Button>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
-  );
+  const filteredExercises = exercises.filter(exercise => {
+    const matchesLevel = selectedLevel === "Tous" || exercise.level === selectedLevel;
+    const matchesSubject = selectedSubject === "Toutes" || exercise.subject === selectedSubject;
+    const matchesSearch = exercise.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         exercise.description.toLowerCase().includes(searchTerm.toLowerCase());
+    
+    return matchesLevel && matchesSubject && matchesSearch;
+  });
 
   return (
     <div className="min-h-screen bg-background">
@@ -526,46 +547,44 @@ const Library = () => {
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in">
               <BookOpen className="h-4 w-4" />
-              Bibliothèque numérique
+              Bibliothèque de ressources
             </div>
             <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent mb-6 animate-fade-in">
-              Explorez notre bibliothèque
+              Tous vos contenus au même endroit
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 animate-fade-in">
-              Accédez à des milliers de documents académiques : livres, articles, mémoires, 
-              thèses et rapports. Tout gratuitement et en français.
+              Accédez à tous nos cours et exercices. Tout ce dont vous avez besoin pour réussir.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">{documents.length}K+</div>
-                <div className="text-sm text-muted-foreground">Documents</div>
+                <div className="text-2xl font-bold text-primary">{courses.length}</div>
+                <div className="text-sm text-muted-foreground">Cours disponibles</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">5</div>
-                <div className="text-sm text-muted-foreground">Types de documents</div>
+                <div className="text-2xl font-bold text-primary">{exercises.length}</div>
+                <div className="text-sm text-muted-foreground">Séries d'exercices</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">∞</div>
-                <div className="text-sm text-muted-foreground">Accès gratuit</div>
+                <div className="text-2xl font-bold text-primary">PDF</div>
+                <div className="text-sm text-muted-foreground">Format téléchargeable</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Content */}
-      <section className="py-12">
+      {/* Filters Section */}
+      <section className="py-8 bg-muted/30">
         <div className="container mx-auto px-4">
-          {/* Search and Filters */}
-          <div className="bg-card rounded-2xl p-6 shadow-sm border mb-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mb-4">
+          <div className="bg-card rounded-2xl p-6 shadow-sm border">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {/* Search */}
-              <div className="lg:col-span-4">
+              <div>
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <Input
                     type="text"
-                    placeholder="Rechercher dans la bibliothèque..."
+                    placeholder="Rechercher..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="pl-10"
@@ -573,102 +592,99 @@ const Library = () => {
                 </div>
               </div>
               
-              {/* Filters */}
-              <div className="lg:col-span-6 grid grid-cols-2 md:grid-cols-4 gap-2">
-                <select
-                  value={selectedType}
-                  onChange={(e) => setSelectedType(e.target.value)}
-                  className="px-3 py-2 border border-input bg-background rounded-md text-sm"
-                >
-                  {types.map(type => (
-                    <option key={type} value={type}>{type}</option>
-                  ))}
-                </select>
-                
+              {/* Level Filter */}
+              <div>
                 <select
                   value={selectedLevel}
                   onChange={(e) => setSelectedLevel(e.target.value)}
-                  className="px-3 py-2 border border-input bg-background rounded-md text-sm"
+                  className="w-full px-3 py-2 border border-input bg-background rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
                 >
                   {levels.map(level => (
                     <option key={level} value={level}>{level}</option>
                   ))}
                 </select>
-                
+              </div>
+              
+              {/* Subject Filter */}
+              <div>
                 <select
                   value={selectedSubject}
                   onChange={(e) => setSelectedSubject(e.target.value)}
-                  className="px-3 py-2 border border-input bg-background rounded-md text-sm"
+                  className="w-full px-3 py-2 border border-input bg-background rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
                 >
                   {subjects.map(subject => (
                     <option key={subject} value={subject}>{subject}</option>
                   ))}
                 </select>
-                
-                <select
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
-                  className="px-3 py-2 border border-input bg-background rounded-md text-sm"
-                >
-                  <option value="downloads">Plus téléchargés</option>
-                  <option value="rating">Mieux notés</option>
-                  <option value="pages">Plus de pages</option>
-                  <option value="title">Alphabétique</option>
-                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Content Section */}
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <Tabs defaultValue="courses" className="w-full">
+            <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">
+              <TabsTrigger value="courses" className="flex items-center gap-2">
+                <BookOpen className="h-4 w-4" />
+                Cours ({filteredCourses.length})
+              </TabsTrigger>
+              <TabsTrigger value="exercises" className="flex items-center gap-2">
+                <Trophy className="h-4 w-4" />
+                Exercices ({filteredExercises.length})
+              </TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="courses" className="mt-0">
+              <div className="mb-8">
+                <p className="text-muted-foreground">
+                  {filteredCourses.length} cours trouvé{filteredCourses.length > 1 ? 's' : ''}
+                </p>
               </div>
               
-              {/* View Toggle */}
-              <div className="lg:col-span-2 flex justify-end">
-                <div className="flex border border-input rounded-md">
-                  <Button
-                    variant={viewMode === "grid" ? "default" : "ghost"}
-                    size="sm"
-                    onClick={() => setViewMode("grid")}
-                    className="rounded-r-none"
-                  >
-                    <Grid className="h-4 w-4" />
-                  </Button>
-                  <Button
-                    variant={viewMode === "list" ? "default" : "ghost"}
-                    size="sm"
-                    onClick={() => setViewMode("list")}
-                    className="rounded-l-none"
-                  >
-                    <List className="h-4 w-4" />
-                  </Button>
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredCourses.map((course) => (
+                  <CourseCard key={course.id} course={course} />
+                ))}
               </div>
-            </div>
-            
-            <p className="text-sm text-muted-foreground">
-              {filteredDocuments.length} document{filteredDocuments.length > 1 ? 's' : ''} trouvé{filteredDocuments.length > 1 ? 's' : ''}
-            </p>
-          </div>
 
-          {/* Documents Display */}
-          {viewMode === "grid" ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredDocuments.map((doc) => (
-                <DocumentCard key={doc.id} doc={doc} />
-              ))}
-            </div>
-          ) : (
-            <div className="space-y-4">
-              {filteredDocuments.map((doc) => (
-                <DocumentListItem key={doc.id} doc={doc} />
-              ))}
-            </div>
-          )}
-          
-          {filteredDocuments.length === 0 && (
-            <div className="text-center py-12">
-              <BookOpen className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-              <h3 className="text-lg font-medium mb-2">Aucun document trouvé</h3>
-              <p className="text-muted-foreground">
-                Essayez de modifier vos filtres ou votre recherche.
-              </p>
-            </div>
-          )}
+              {filteredCourses.length === 0 && (
+                <div className="text-center py-12">
+                  <BookOpen className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+                  <h3 className="text-lg font-medium mb-2">Aucun cours trouvé</h3>
+                  <p className="text-muted-foreground">
+                    Essayez de modifier vos filtres ou votre recherche.
+                  </p>
+                </div>
+              )}
+            </TabsContent>
+
+            <TabsContent value="exercises" className="mt-0">
+              <div className="mb-8">
+                <p className="text-muted-foreground">
+                  {filteredExercises.length} exercice{filteredExercises.length > 1 ? 's' : ''} trouvé{filteredExercises.length > 1 ? 's' : ''}
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredExercises.map((exercise) => (
+                  <ExerciseCard key={exercise.id} exercise={exercise} />
+                ))}
+              </div>
+
+              {filteredExercises.length === 0 && (
+                <div className="text-center py-12">
+                  <Trophy className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+                  <h3 className="text-lg font-medium mb-2">Aucun exercice trouvé</h3>
+                  <p className="text-muted-foreground">
+                    Essayez de modifier vos filtres ou votre recherche.
+                  </p>
+                </div>
+              )}
+            </TabsContent>
+          </Tabs>
         </div>
       </section>
 

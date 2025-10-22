@@ -30,7 +30,7 @@ interface CourseCardProps {
     thumbnail: string;
     hasVideo: boolean;
     hasPdf: boolean;
-    content: string;
+    content?: string;
     isPremium?: boolean;
     pdfUrl?: string;
   };
@@ -69,7 +69,7 @@ const CourseCard = ({ course }: CourseCardProps) => {
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-    } else {
+    } else if (course.content) {
       // Télécharger le contenu en texte (fallback)
       const element = document.createElement('a');
       element.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(course.content);
@@ -184,13 +184,17 @@ const CourseCard = ({ course }: CourseCardProps) => {
                       className="w-full h-full border-0"
                       title={course.title}
                     />
-                  ) : (
+                  ) : course.content ? (
                     <div className="overflow-y-auto h-full px-6 pb-6">
                       <div className="prose prose-sm max-w-none">
                         <div dangerouslySetInnerHTML={{ 
                           __html: course.content.replace(/\n/g, '<br/>').replace(/#{1,6} /g, '<h3>').replace(/<h3>/g, '<h3 class="text-lg font-semibold mt-4 mb-2">') 
                         }} />
                       </div>
+                    </div>
+                  ) : (
+                    <div className="flex items-center justify-center h-full">
+                      <p className="text-muted-foreground">Contenu non disponible</p>
                     </div>
                   )}
                 </div>
