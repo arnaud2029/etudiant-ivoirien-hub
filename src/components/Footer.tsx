@@ -1,4 +1,5 @@
 import { BookOpen, Facebook, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
@@ -8,9 +9,11 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-1 space-y-6">
             <div className="flex items-center space-x-3">
-              <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-primary to-primary-glow rounded-xl text-white font-bold text-xl">
-                ÉI
-              </div>
+              <img 
+                src={logo} 
+                alt="Étudiant Ivoirien Logo" 
+                className="w-12 h-12 object-contain"
+              />
               <div>
                 <h3 className="text-xl font-heading font-bold text-foreground">
                   Étudiant Ivoirien
