@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Search, Target, Trophy, BookOpen, Award, CheckCircle, Users, Clock, PlayCircle } from "lucide-react";
+import { Search, Target, Trophy, BookOpen, Award, CheckCircle, Users, Clock } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
@@ -361,18 +361,6 @@ const Exercises = () => {
                 
                 <CardContent>
                   <div className="space-y-4">
-                    {/* Progress Bar */}
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-sm">
-                        <span className="text-muted-foreground">Progression</span>
-                        <span className="font-medium">{exercise.completed}%</span>
-                      </div>
-                      <Progress 
-                        value={exercise.completed} 
-                        className="h-2"
-                      />
-                    </div>
-
                     {/* Exercise Info */}
                     <div className="flex items-center justify-between text-sm text-muted-foreground">
                       <div className="flex items-center gap-1">
@@ -400,13 +388,7 @@ const Exercises = () => {
                     </div>
                     
                     {/* Action Button */}
-                    <Button 
-                      className="w-full mt-4"
-                      disabled={false}
-                    >
-                      <PlayCircle className="h-4 w-4 mr-2" />
-                      {exercise.completed === 100 ? "Refaire" : exercise.completed > 0 ? "Continuer" : "Commencer"}
-                    </Button>
+                    <ExerciseCard exercise={exercise} />
                   </div>
                 </CardContent>
               </Card>
